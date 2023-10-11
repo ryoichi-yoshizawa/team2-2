@@ -1,0 +1,394 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ja"><head>
+    <!-- Google tag (gtag.js) -->
+    <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202308220101/reactive_library_fy2021.js"></script><script src="https://partner.googleadservices.com/gampad/cookie.js?domain=baseball-data.com&amp;callback=_gfp_s_&amp;client=ca-pub-2613098592193304&amp;cookie=ID%3Dd4625ff68ef49bb0-2287ddcfa5e0002e%3AT%3D1683783908%3ART%3D1688540086%3AS%3DALNI_Ma8waALOox7dQ5e2qK3Zu0yi_IILA&amp;gpic=UID%3D00000c043de2b149%3AT%3D1683783908%3ART%3D1688540086%3AS%3DALNI_Ma1HvONRa8DluytcysqOdB6s43KcA"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202308220101/show_ads_impl_fy2021.js" id="google_shimpl"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9JEJ44LTYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-9JEJ44LTYV');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>プロ野球データFreak</title>
+    <meta name="description" content="他では見られないプロ野球の詳しいデータを掲載。チーム成績、選手成績。">
+    <meta name="keywords" content="プロ野球,野球,データ,成績,セイバーメトリクス,スタッツ">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" href="https://baseball-data.com/style.css?1" type="text/css">
+    <link rel="shortcut icon" href="https://baseball-data.com/image/favicon.ico">
+    
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-7644040-6', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="></head>
+
+
+    <body aria-hidden="false" style="padding: 0px;">
+    <div id="top"></div>
+    <div id="container">
+    
+      <body aria-hidden="false" style="padding: 0px;">
+        <div id="top"></div>
+        <div id="container">
+    
+      <header>
+      <button id="translate-button">Translate</button>
+      
+      <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'ja'}, 
+        'google_translate_element');
+      }
+      </script>
+            
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          
+      </header>
+            
+        
+        <div id="header">
+        <div style="float:left;width:470px;">
+        <a href="https://baseball-data.com/"><img src="title5.png" class="title-logo" alt=""></a>
+        <h1>Packed with professional baseball data! We post team/player results, indicators used for sabermetrics, and unique data that cannot be found on other sites.</h1>
+        </div>
+        
+        
+        <div style="clear:both; margin-bottom:5px;"></div>
+        
+    
+    
+    
+    
+    
+    <div id="main">
+    
+    <div style="margin-bottom:15px; width:710px;position:relative; float:left;">
+    <h2 class="h2-bar1">2023Professional baseball standings</h2>
+    <p style="position:absolute; top:5px; right:10px;font-size:13px;">Ends August 27th</p>
+    
+    
+    <div style="border:1px solid #337; float:left; margin:10px 10px 0 0;">
+    <div class="st-hd" style="background:url(image/icon/ce.png) no-repeat 5px center; background-color:#4aaf6e;">Central League</div>
+    <table class="standings" style="background-color:#4aaf6e;" cellspacing="1">
+    <tbody><tr>
+    <th style="width:20px;text-align:center;">order</th>
+    <th>team</th>
+    <th style="width:30px;">attempt</th>
+    <th style="width:30px;">win</th>
+    <th style="width:30px;">negative</th>
+    <th style="width:30px;">minutes</th>
+    <th>ratio</th>
+    <th>difference</th>
+    </tr>
+    
+    <tr style="background-color:#fff;">
+    <td style="text-align:center;">1</td>
+    <td style="text-align:left;"><img src="https://baseball-data.com/image/icon/t.png" class="icon-team">Hanshin</td>
+    <td>115</td>
+    <td>69</td>
+    <td>42</td>
+    <td>4</td>
+    <td>.622</td>
+    <td>M21</td>
+    </tr>
+    <tr style="background-color:#efd;">
+    <td style="text-align:center;">2</td>
+    <td style="text-align:left;"><img src="https://baseball-data.com/image/icon/c.png" class="icon-team">Hiroshima</td>
+    <td>117</td>
+    <td>63</td>
+    <td>50</td>
+    <td>4</td>
+    <td>.558</td>
+    <td>7.0</td>
+    </tr>
+    <tr style="background-color:#fff;">
+    <td style="text-align:center;">3</td>
+    <td style="text-align:left;"><img src="https://baseball-data.com/image/icon/yb.png" class="icon-team">DeNA</td>
+    <td>115</td>
+    <td>57</td>
+    <td>55</td>
+    <td>3</td>
+    <td>.509</td>
+    <td>5.5</td>
+    </tr>
+    <tr style="background-color:#efd;">
+    <td style="text-align:center;">4</td>
+    <td style="text-align:left;"><img src="https://baseball-data.com/image/icon/g.png" class="icon-team">Giant</td>
+    <td>114</td>
+    <td>57</td>
+    <td>56</td>
+    <td>1</td>
+    <td>.504</td>
+    <td>0.5</td>
+    </tr>
+    <tr style="background-color:#fff;">
+    <td style="text-align:center;">5</td>
+    <td style="text-align:left;"><img src="https://baseball-data.com/image/icon/s.png" class="icon-team">Yakult</td>
+    <td>115</td>
+    <td>47</td>
+    <td>65</td>
+    <td>3</td>
+    <td>.420</td>
+    <td>9.5</td>
+    </tr>
+    <tr style="background-color:#efd;">
+    <td style="text-align:center;">6</td>
+    <td style="text-align:left;"><img src="https://baseball-data.com/image/icon/d.png" class="icon-team">Chunichi</td>
+    <td>114</td>
+    <td>42</td>
+    <td>69</td>
+    <td>3</td>
+    <td>.378</td>
+    <td>4.5</td>
+    </tr>
+    
+    </tbody></table>
+    </div>
+    
+   
+    
+    
+    
+    <div class="st-bottom">
+    <a href="https://baseball-data.com/team/standings.html">standings list details</a>　
+    <a href="https://baseball-data.com/team/hitter.html">Team batting average</a>　
+    <a href="https://baseball-data.com/team/pitcher.html">Team pitching results</a>　
+    <a href="https://baseball-data.com/team/ce.html">Central league pitching and batting results</a>　
+    <a href="https://baseball-data.com/team/pa.html">Pacific league pitching and batting record</a>
+    </div>
+    
+    <div class="st-bottom">
+    <a href="https://baseball-data.com/starter/ce.html">Central league starting pitchers</a>　
+    <a href="https://baseball-data.com/starter/pa.html">Pacific league starting picthers</a>　
+    </div>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div style="clear:both; float:left;width:470px;">
+    <div style="width:450px;margin-bottom:15px;">
+    <h2 class="h2-bar1" style="margin-bottom:5px;">Player data and results by team</h2>
+    <table class="stats-menu" cellspacing="0" style="border:2px solid #4aaf6e; border-top:10px solid #4aaf6e;margin-bottom:5px;"><tbody><tr style="background-color:#fff;">
+    <td style="width:90px;"><img src="https://baseball-data.com/image/icon/s.png" class="icon-team" alt="ヤクルト">Swallows</td>
+    <td><a href="https://baseball-data.com/player/s/">Players List</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-s/">Batting results</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-s/">Pitching record</a></td>
+    <td><a href="https://baseball-data.com/lineup/s.html">Starting lineup</a></td>
+    <td><a href="https://baseball-data.com/starter/s.html">Starter</a></td>
+    </tr>
+    <tr style="background-color:#eee;">
+    <td style="width:90px;"><img src="https://baseball-data.com/image/icon/yb.png" class="icon-team" alt="DeNA">Baystars</td>
+    <td><a href="https://baseball-data.com/player/yb/">Players List</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-yb/">Batting results</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-yb/">Pitching record</a></td>
+    <td><a href="https://baseball-data.com/lineup/yb.html">Starting lineup</a></td>
+    <td><a href="https://baseball-data.com/starter/yb.html">Starter</a></td>
+    </tr>
+    <tr style="background-color:#fff;">
+    <td style="width:90px;"><img src="https://baseball-data.com/image/icon/t.png" class="icon-team" alt="阪神">Tigers</td>
+    <td><a href="https://baseball-data.com/player/t/">Players List</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-t/">Batting results</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-t/">Pitching record</a></td>
+    <td><a href="https://baseball-data.com/lineup/t.html">Starting lineup</a></td>
+    <td><a href="https://baseball-data.com/starter/t.html">Starter</a></td>
+    </tr>
+    <tr style="background-color:#eee;">
+    <td style="width:90px;"><img src="https://baseball-data.com/image/icon/g.png" class="icon-team" alt="巨人">Giants</td>
+    <td><a href="https://baseball-data.com/player/g/">Players List</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-g/">Batting results</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-g/">Pitching record</a></td>
+    <td><a href="https://baseball-data.com/lineup/g.html">Starting lineup</a></td>
+    <td><a href="https://baseball-data.com/starter/g.html">Starter</a></td>
+    </tr>
+    <tr style="background-color:#fff;">
+    <td style="width:90px;"><img src="https://baseball-data.com/image/icon/c.png" class="icon-team" alt="広島">Carp</td>
+    <td><a href="https://baseball-data.com/player/c/">Players List</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-c/">Batting results</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-c/">Pitching record</a></td>
+    <td><a href="https://baseball-data.com/lineup/c.html">Starting lineup</a></td>
+    <td><a href="https://baseball-data.com/starter/c.html">Starter</a></td>
+    </tr>
+    <tr style="background-color:#eee;">
+    <td style="width:90px;"><img src="https://baseball-data.com/image/icon/d.png" class="icon-team" alt="中日">Dragons</td>
+    <td><a href="https://baseball-data.com/player/d/">Players List</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-d/">Batting results</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-d/">Pitching record</a></td>
+    <td><a href="https://baseball-data.com/lineup/d.html">Starting lineup</a></td>
+    <td><a href="https://baseball-data.com/starter/d.html">Starter</a></td>
+    </tr>
+    </tbody></table>
+   
+    
+    <div style="width:450px;margin-bottom:15px;">
+    <h2 class="h2-bar1">Past data</h2>
+    <ul class="list1">
+    <li><a href="https://baseball-data.com/22/">2022</a></li>
+    <li><a href="https://baseball-data.com/21/">2021</a></li>
+    <li><a href="https://baseball-data.com/20/">2020</a></li>
+    <li><a href="https://baseball-data.com/19/">2019</a></li>
+    <li><a href="https://baseball-data.com/18/">2018</a></li>
+    <li><a href="https://baseball-data.com/17/">2017</a></li>
+    <li><a href="https://baseball-data.com/16/">2016</a></li>
+    <li><a href="https://baseball-data.com/15/">2015</a></li>
+    <li><a href="https://baseball-data.com/14/">2014</a></li>
+    <li><a href="https://baseball-data.com/13/">2013</a></li>
+    <li><a href="https://baseball-data.com/12/">2012</a></li>
+    <li><a href="https://baseball-data.com/11/">2011</a></li>
+    <li><a href="https://baseball-data.com/10/">2010</a></li>
+    <li><a href="https://baseball-data.com/09/">2009</a></li>
+    </ul>
+    <div style="clear:both;"></div>
+    </div>
+    
+    </div>
+    
+    <div style="float:left;width:470px;">
+    <div style="width:450px;padding-bottom:15px;">
+    <h2 class="h2-bar1">Player data ranking</h2>
+    <ul class="list-r">
+    <li><a href="https://baseball-data.com/ranking-salary/all/">yearly salary</a></li>
+    <li><a href="https://baseball-data.com/ranking-height/all/">height</a></li>
+    <li><a href="https://baseball-data.com/ranking-weight/all/">body weight</a></li>
+    <li><a href="https://baseball-data.com/ranking-age/all/">age</a></li>
+    <li><a href="https://baseball-data.com/ranking-year/all/">pro years</a></li>
+    </ul>
+    </div>
+    <div style="clear:both;"></div>
+    
+    
+    <div style="width:450px;margin-bottom:15px;">
+    <h2 class="h2-bar1">Performance ranking</h2>
+    <table class="rank-menu" cellspacing="1">
+    
+    <tbody><tr>
+    <th rowspan="2" style="border:solid 3px #4aaf6e;"><img src="https://baseball-data.com/image/icon/ce.png" class="icon-team">Central League</th>
+    <th>Batting results</th>
+    <td><a href="https://baseball-data.com/stats/hitter-ce/">batting average</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-ce/hr-2.html">home run</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-ce/rbi-2.html">RBI</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-ce/sb-2.html">steals</a></td>
+    </tr>
+    <tr style="background-color:#eee">
+    <th>Pitching results</th>
+    <td><a href="https://baseball-data.com/stats/pitcher-ce/">ERA ratio</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-ce/win-2.html">wins</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-ce/so-2.html">strikeout</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-ce/save-2.html">saves</a></td>
+    </tr>
+    
+    <tr>
+    <th rowspan="2" style="border:solid 3px #4daee5;"><img src="https://baseball-data.com/image/icon/pa.png" class="icon-team">Pacific League</th>
+    <th>Batting results</th>
+    <td><a href="https://baseball-data.com/stats/hitter-pa/">batting average</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-pa/hr-2.html">home run</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-pa/rbi-2.html">RBI</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-pa/sb-2.html">steals</a></td>
+    </tr>
+    <tr style="background-color:#eee;">
+    <th>Pitching results</th>
+    <td><a href="https://baseball-data.com/stats/pitcher-pa/">ERA ratio</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-pa/win-2.html">wins</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-pa/so-2.html">strikeout</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-pa/save-2.html">saves</a></td>
+    </tr>
+    
+    <tr>
+    <th rowspan="2" style="border:solid 3px #00056e;"><img src="https://baseball-data.com/image/icon/all.png" class="icon-team">both leagues</th>
+    <th>Batting results</th>
+    <td><a href="https://baseball-data.com/stats/hitter-all/">batting average</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-all/hr-2.html">home run</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-all/rbi-2.html">RBI</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-all/sb-2.html">steals</a></td>
+    </tr>
+    <tr style="background-color:#eee;">
+    <th>Pitching results</th>
+    <td><a href="https://baseball-data.com/stats/pitcher-all/">ERA ratio</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-all/win-2.html">wins</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-all/so-2.html">strikeout</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-all/save-2.html">saves</a></td>
+    </tr>
+    
+    </tbody></table>
+    </div>
+    
+    
+    <div style="width:450px;margin-bottom:15px;">
+    <h2 class="h2-bar1">Rookie/Rookie of the year qualifiers</h2>
+    <table class="rank-menu" cellspacing="1">
+    <tbody><tr style="background-color:#fff;">
+    <th>Batting results</th>
+    <td><a href="https://baseball-data.com/stats/hitter-all/tpa-6.html">Rookie</a></td>
+    <td><a href="https://baseball-data.com/stats/hitter-all/tpa-7.html">Rookie of the Year Qualified Player</a></td>
+    </tr>
+    
+    <tr style="background-color:#eee;">
+    <th>Pitching results</th>
+    <td><a href="https://baseball-data.com/stats/pitcher-all/ip3-6.html">Rookie</a></td>
+    <td><a href="https://baseball-data.com/stats/pitcher-all/ip3-7.html">Rookie of the Year Qualified Player</a></td>
+    </tr>
+    </tbody></table>
+    </div>
+    
+    <div style="width:450px;margin-bottom:15px;">
+    <h2 class="h2-bar1">Others</h2>
+    <ul class="list1">
+    <li><a href="https://baseball-data.com/stats/p-hitting/">Pitchers' batting record</a></li>
+    <li><a href="https://baseball-data.com/stats/steal/">Steal success rate</a></li>
+    </ul>
+    <div style="clear:both;"></div>
+    </div>
+    
+    </div>
+    
+    
+    
+    <div style="clear:both;">
+    
+    
+    
+    
+    </tbody></table>
+    </div>
+    
+    </div>
+    
+    <div style="clear:both;"></div>
+    
+    
+    </div>
+    
+    <div class="right">
+    <a href="#">▲Return to top of page</a>
+    </div>
+    
+    </div> <!-- main -->
+
+
+    <div id="footer">
+    <p>
+    <a href="https://baseball-freak.com/" target="_blank">Professional Baseball Freak</a> |
+    <a href="https://baseball-data.com/bp/">Blog Parts</a> |
+    <a href="https://baseball-data.com/about.php">Contact Us/Disclaimer/Links</a>
+    </p>
+    
+    <p>
+    Copyright (C) 2023- <a href="https://baseball-data.com/">Professional Baseball Data Freak</a> All Rights Reserved.
+    </p>
+    </div>
+    
+    
+    
+    
+    <ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_3_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_3" name="aswift_3" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2613098592193304&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1693230328&amp;plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;plas=135x608_l%7C154x608_r&amp;format=0x0&amp;url=https%3A%2F%2Fbaseball-data.com%2F&amp;ea=0&amp;pra=7&amp;wgl=1&amp;easpi=0&amp;asro=0&amp;asrtr=1&amp;asiscm=1&amp;aslmt=0.4&amp;asamt=-1&amp;asedf=0&amp;asefa=1&amp;uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE2LjAuNTg0NS4xMTEiLFtdLDAsbnVsbCwiNjQiLFtbIkNocm9taXVtIiwiMTE2LjAuNTg0NS4xMTEiXSxbIk5vdClBO0JyYW5kIiwiMjQuMC4wLjAiXSxbIkdvb2dsZSBDaHJvbWUiLCIxMTYuMC41ODQ1LjExMSJdXSwwXQ..&amp;dt=1693230328114&amp;bpp=2&amp;bdt=731&amp;idt=317&amp;shv=r20230823&amp;mjsv=m202308220101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Dd4625ff68ef49bb0-2287ddcfa5e0002e%3AT%3D1683783908%3ART%3D1688540086%3AS%3DALNI_Ma8waALOox7dQ5e2qK3Zu0yi_IILA&amp;gpic=UID%3D00000c043de2b149%3AT%3D1683783908%3ART%3D1688540086%3AS%3DALNI_Ma1HvONRa8DluytcysqOdB6s43KcA&amp;prev_fmts=728x90%2C800x200%2C728x90&amp;nras=1&amp;correlator=476367248633&amp;frm=20&amp;pv=1&amp;ga_vid=217361495.1683783907&amp;ga_sid=1693230328&amp;ga_hid=2068264776&amp;ga_fc=1&amp;u_tz=540&amp;u_his=3&amp;u_h=800&amp;u_w=1280&amp;u_ah=752&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1.5&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1263&amp;bih=675&amp;scr_x=0&amp;scr_y=0&amp;eid=44759842%2C44759875%2C44759926%2C31077259%2C31077317%2C31076998%2C31067146%2C31067147%2C31067148%2C31068556&amp;oid=2&amp;pvsid=3871072116389388&amp;tmod=370528711&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;ref=https%3A%2F%2Fsearch.yahoo.co.jp%2F&amp;fc=896&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C752%2C1280%2C675&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;td=1&amp;nt=1&amp;ifi=4&amp;uci=a!4&amp;fsb=1&amp;dtd=330" data-google-container-id="a!4" data-load-complete="true"></iframe></div></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-side-rail-status="idle" data-ad-status="filled" style="display: none !important; z-index: 2147483647 !important;"><div id="aswift_5_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 600px; width: 135px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_5" name="aswift_5" browsingtopics="true" style="width:135px !IMPORTANT;height:600px !IMPORTANT" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="135" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="https://googleads.g.doubleclick.net/pagead/html/r20230823/r20110914/zrt_lookup.html?fsb=1#RS-1-&amp;adk=1812271803&amp;client=ca-pub-2613098592193304&amp;fa=3&amp;ifi=6&amp;uci=a!6&amp;btvi=3&amp;xpc=ogDUyw7WNZ&amp;p=https%3A//baseball-data.com" data-google-container-id="a!6" data-google-query-id="CMvNzcC-_4ADFbOE6QUd_4IPKQ" data-load-complete="true"></iframe></div><span class="left-side-rail-edge" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 0px !important; top: 600px !important; width: 135px !important; height: 5px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"></span><span class="left-side-rail-dismiss-btn" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 43px !important; right: 43px !important; top: 605px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"><svg style="position: absolute !important; top: 0px !important; display: block !important; width: 50px !important; height: 30px !important; margin-top: -5px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="left-side-rail-drop-shadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feComponentTransfer in="SourceAlpha" result="TransferredAlpha"><feFuncR type="discrete" tableValues="0.5"></feFuncR><feFuncG type="discrete" tableValues="0.5"></feFuncG><feFuncB type="discrete" tableValues="0.5"></feFuncB></feComponentTransfer><feGaussianBlur in="TransferredAlpha" stdDeviation="2"></feGaussianBlur><feOffset dx="0" dy="0" result="offsetblur"></feOffset><feMerge><feMergeNode></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><path d="M5,5 L5,17 A8,8 0 0,0 13,25 L37,25 A8,8 0 0,0 45,17 L45,5 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#left-side-rail-drop-shadow&quot;);"></path><rect x="0" y="0" width="50" height="5" style="fill: rgb(250, 250, 250);"></rect><g stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="18" y1="18" x2="25" y2="12"></line><line x1="25" y1="12" x2="32" y2="18"></line></g></svg></span></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="displayed" data-ad-status="filled" data-anchor-shown="true" style="display: none; width: 100% !important; height: 129px !important; bottom: 0px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;"><div class="grippy-host"></div><div id="aswift_6_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_6" name="aswift_6" browsingtopics="true" style="width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="https://googleads.g.doubleclick.net/pagead/html/r20230823/r20110914/zrt_lookup.html?fsb=1#RS-3-&amp;adk=1812271801&amp;client=ca-pub-2613098592193304&amp;fa=1&amp;ifi=7&amp;uci=a!7&amp;btvi=4&amp;xpc=9WLFSlBpAb&amp;p=https%3A//baseball-data.com" data-google-container-id="a!7" data-google-query-id="CM3NzcC-_4ADFbOE6QUd_4IPKQ" data-load-complete="true"></iframe></div></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20230823/r20190131/zrt_lookup.html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><div id="aswift_4_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="https://googleads.g.doubleclick.net/pagead/html/r20230823/r20110914/zrt_lookup.html?fsb=1#RS-0-&amp;adk=1812271808&amp;client=ca-pub-2613098592193304&amp;fa=8&amp;ifi=5&amp;uci=a!5&amp;xpc=Ncu4xrNApF&amp;p=https%3A//baseball-data.com" data-google-container-id="a!5" data-google-query-id="CMrNzcC-_4ADFbOE6QUd_4IPKQ" data-load-complete="true"></iframe></div></ins></html>
