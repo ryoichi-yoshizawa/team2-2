@@ -1,17 +1,36 @@
-a.btn_05 {
-	text-align: center;
-	text-decoration: none;
-	width: 50px;
+a.btn_28 {
 	margin: auto;
-	padding: 1rem 4rem;
-	font-weight: bold;
-	border-radius: 0.3rem;
-	border-bottom: 7px solid #0686b2;
-	background: #27acd9;
+	width: 250px;
+	padding: 3px;
+	align-items: center;
+	text-align: center;
+	background-image: linear-gradient(145deg,#27acd9 , #195892 50%,#b4e12b);
+	border: 0;
+	border-radius: 10px;
 	color: #fff;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: all .3s;
 }
-a.btn_05:hover {
-	margin-top: 6px;
-	border-bottom: 1px solid #0686b2;
+a.btn_28:active,a.btn_28:hover {
+ outline: 0;
+}
+a.btn_28 span {
+ background: #000;
+ padding: 1rem 4rem;
+ border-radius: 6px;
+ width: 100%;
+ height: 100%;
+ transition: 300ms;
+}
+a.btn_28:hover span {
+ background: none;
 	color: #fff;
 }
