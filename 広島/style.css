@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+a.btn_05 {
+	text-align: center;
+	text-decoration: none;
+	width: 50px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	border-radius: 0.3rem;
+	border-bottom: 7px solid #0686b2;
+	background: #27acd9;
+	color: #fff;
+}
+a.btn_05:hover {
+	margin-top: 6px;
+	border-bottom: 1px solid #0686b2;
+	color: #fff;
+=======
 a.btn_28 {
 	margin: auto;
 	width: 250px;
@@ -33,4 +51,5 @@ a.btn_28 span {
 a.btn_28:hover span {
  background: none;
 	color: #fff;
+>>>>>>> db98cb8d57d9e9d37ace58bbad4ab74b0547bf9a
 }
