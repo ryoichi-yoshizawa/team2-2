@@ -16,7 +16,7 @@
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <link rel="stylesheet" href="https://baseball-data.com/style.css?1" type="text/css">
     <link rel="shortcut icon" href="https://baseball-data.com/image/favicon.ico">
-    
+    <link rel="stylesheet" href="style.css">
     
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -30,97 +30,42 @@
     <meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="></head>
     
     <body>
-    <div id="top"></div>
-    <div id="container">
-    
-    <div id="header">
-    <div style="float:left;width:470px;">
-    <a href="https://baseball-data.com/"><img src="https://baseball-data.com/image/title.png" class="title-logo" alt=""></a>
-    <h1>プロ野球のデータが満載！チーム・選手の成績やセイバーメトリクスに使われる指標、他のサイトでは見られないユニークなデータを掲載しています</h1>
-    </div>
-    </div>
-    
-    <div style="clear:both; margin-bottom:5px;"></div>
-    
-    
-    
-    
-    <div id="main">
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e;">チーム</strong>
-     | <span style="color:#bbb;">全球団</span>
-     | <span style="color:#bbb;">セ･リーグ</span>
-     | <span style="color:#bbb;">パ･リーグ</span>
-     | <a href="https://baseball-data.com/player/s/">ヤクルト</a>
-     | <a href="https://baseball-data.com/player/yb/">DeNA</a>
-     | <strong>阪神</strong>
-     | <a href="https://baseball-data.com/player/g/">巨人</a>
-     | <a href="https://baseball-data.com/player/c/">広島</a>
-     | <a href="https://baseball-data.com/player/d/">中日</a>
-     | <a href="https://baseball-data.com/player/bs/">オリックス</a>
-     | <a href="https://baseball-data.com/player/h/">ソフトバンク</a>
-     | <a href="https://baseball-data.com/player/l/">西武</a>
-     | <a href="https://baseball-data.com/player/e/">楽天</a>
-     | <a href="https://baseball-data.com/player/m/">ロッテ</a>
-     | <a href="https://baseball-data.com/player/f/">日本ハム</a>
-    
-    </div>
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e">阪神</strong>
-     | <strong>選手一覧</strong>
-    
-     | <a href="https://baseball-data.com/stats/hitter-t/">打者成績</a>
-     | <a href="https://baseball-data.com/stats/pitcher-t/">投手成績</a>
-    
-     | <a href="https://baseball-data.com/lineup/t.html">スタメン</a>
-     | <a href="https://baseball-data.com/starter/t.html">先発投手</a>
-    
-     | <a href="https://baseball-data.com/stats-farm/hitter-t/">打者成績(ファーム)</a>
-     | <a href="https://baseball-data.com/stats-farm/pitcher-t/">投手成績(ファーム)</a>
-    
-    </div>
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e">ランキング</strong>
-     | <a href="https://baseball-data.com/ranking-salary/t/">年俸</a>
-     | <a href="https://baseball-data.com/ranking-height/t/">身長</a>
-     | <a href="https://baseball-data.com/ranking-weight/t/">体重</a>
-     | <a href="https://baseball-data.com/ranking-age/t/">年齢</a>
-     | <a href="https://baseball-data.com/ranking-year/t/">プロ年数</a>
-    
-    </div>
-    <div class="bbf-menu">
-    <strong style="color:#d2691e">プロ野球Freak</strong> |
-    <a href="https://baseball-freak.com/game/tigers.html" target="_blank">試合日程・結果</a> |
-    <a href="https://baseball-freak.com/calendar/tigers.html" target="_blank">カレンダー</a> |
-    <a href="https://baseball-freak.com/rotation/tigers.html" target="_blank">先発ローテーション</a> |
-    <a href="https://baseball-freak.com/audience/tigers.html" target="_blank">観客動員数</a> |
-    <a href="https://baseball-freak.com/chart/" target="_blank">貯金・順位推移グラフ</a> |
-    <a href="https://baseball-freak.com/news/tigers.html" target="_blank">ニュース</a> |
-    <a href="https://baseball-freak.com/birthday/" target="_blank">選手誕生日</a> |
-    <a href="https://baseball-freak.com/starter.html" target="_blank">予告先発</a>
-    </div>
-    <div class="year-menu">
-    <strong style="color:#1e69d2">シーズン</strong>
-     | <strong>2023</strong> | <a href="https://baseball-data.com/22/player/t/">2022</a> | <a href="https://baseball-data.com/21/player/t/">2021</a> | <a href="https://baseball-data.com/20/player/t/">2020</a> | <a href="https://baseball-data.com/19/player/t/">2019</a> | <a href="https://baseball-data.com/18/player/t/">2018</a> | <a href="https://baseball-data.com/17/player/t/">2017</a> | <a href="https://baseball-data.com/16/player/t/">2016</a> | <a href="https://baseball-data.com/15/player/t/">2015</a> | <a href="https://baseball-data.com/14/player/t/">2014</a> | <a href="https://baseball-data.com/13/player/t/">2013</a> | <a href="https://baseball-data.com/12/player/t/">2012</a> | <a href="https://baseball-data.com/11/player/t/">2011</a> | <a href="https://baseball-data.com/10/player/t/">2010</a> | <a href="https://baseball-data.com/09/player/t/">2009</a>
-    </div>
+      <div id="top"></div>
+      <div id="container">
+      
+        <div id="header">
+        </div>
+        
+        <div style="clear:both; margin-bottom:5px;"></div>
+        
+        
+        <div id="main">
+          <img src="phonto (2).jpg" alt="写真" width="500" height="130">
+         
+       
+          <strong style="color:#224499;">チーム</strong>
+        <div class="button_row">
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/ヤクルト/選手.html" class="btn_3"><span>ヤクルト</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/DeNA/選手.html" class="btn_4"><span>DeNA</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2//巨人/選手.html" class="btn_1"><span>巨人</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/広島/選手.html" class="btn_2"><span>広島</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/中日/選手.html" class="btn_5"><span>中日</span></a>
+        </div>
+      
+        <strong style="color:#224499">阪神</strong>
+        <strong style="color:#224499">ヤクルト</strong>
+        <div class="button_row">
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/阪神/選手.html" class="btn_a"><span>選手一覧</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/阪神/打者.html" class="btn_a"><span>打者成績</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/阪神/投手.html" class="btn_a"><span>投手成績</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/阪神/先発.html" class="btn_a"><span>先発投手</span></a>
+          <a href="https://ryoichi-yoshizawa.github.io/team2-2/阪神/スタメン.html" class="btn_a"><span>スタメン</span></a>
+        
+        </div>
     
     <h2 class="pname" style="border-bottom:5px solid #ffcc00;"><img src="https://baseball-data.com/image/icon/t.png" class="icon-team">阪神タイガース選手一覧</h2>
     
-    <div style="padding:0 10px; margin-bottom:5px;">
-    <strong>全選手</strong>
-    　|　<a href="https://baseball-data.com/player/t/p.html">投手</a>
-    　|　<a href="https://baseball-data.com/player/t/c.html">捕手</a>
-    　|　<a href="https://baseball-data.com/player/t/i.html">内野手</a>
-    　|　<a href="https://baseball-data.com/player/t/o.html">外野手</a>
-    　|　<a href="https://baseball-data.com/player/t/r.html">ルーキー</a>
-    　|　<a href="https://baseball-data.com/player/t/s.html">新人王有資格者</a>
-    　|　<a href="https://baseball-data.com/player/t/b.html">育成選手</a>
-    <p></p>
     
-    </div>
     
     
     <table id="tbl" class="tablesorter players" cellspacing="1">
