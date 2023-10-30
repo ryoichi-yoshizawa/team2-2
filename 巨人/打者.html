@@ -1,284 +1,143 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ja"><head>
-    <!-- Google tag (gtag.js) -->
-    <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202306070101/reactive_library_fy2021.js?bust=31075205"></script><script src="https://partner.googleadservices.com/gampad/cookie.js?domain=baseball-data.com&amp;callback=_gfp_s_&amp;client=ca-pub-2613098592193304&amp;cookie=ID%3Dd4625ff68ef49bb0-2287ddcfa5e0002e%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma8waALOox7dQ5e2qK3Zu0yi_IILA&amp;gpic=UID%3D00000c043de2b149%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma1HvONRa8DluytcysqOdB6s43KcA"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202306070101/show_ads_impl_fy2021.js?bust=31075205" id="google_shimpl"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9JEJ44LTYV"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202310260102/reactive_library_fy2021.js?bust=31079248"></script><script src="https://partner.googleadservices.com/gampad/cookie.js?domain=baseball-data.com&amp;callback=_gfp_s_&amp;client=ca-pub-2613098592193304&amp;cookie=ID%3Dd4625ff68ef49bb0-2287ddcfa5e0002e%3AT%3D1683783908%3ART%3D1698675038%3AS%3DALNI_Ma8waALOox7dQ5e2qK3Zu0yi_IILA&amp;gpic=UID%3D00000c043de2b149%3AT%3D1683783908%3ART%3D1698675038%3AS%3DALNI_Ma1HvONRa8DluytcysqOdB6s43KcA"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202310260102/show_ads_impl_fy2021.js?bust=31079248" id="google_shimpl"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9JEJ44LTYV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-9JEJ44LTYV');
+  </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>読売ジャイアンツ打者成績(打席数順) - プロ野球データFreak</title>
+  <meta name="description" content="読売ジャイアンツの打者成績(打席数順)。他では見られないプロ野球の詳しいデータを掲載。チーム成績、選手成績。">
+  <meta name="keywords" content="読売ジャイアンツ,打者成績,バッター,打席数,プロ野球,野球,データ,成績,セイバーメトリクス,スタッツ">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <link rel="stylesheet" href="https://baseball-data.com/style.css?1" type="text/css">
+  <link rel="shortcut icon" href="https://baseball-data.com/image/favicon.ico">
+  <link rel="stylesheet" href="style.css">
     
-      gtag('config', 'G-9JEJ44LTYV');
-    </script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>読売ジャイアンツ打者成績(基本成績)(打席数順) - プロ野球データFreak</title>
-    <meta name="description" content="読売ジャイアンツの打者成績(基本成績)(打席数順)。他では見られないプロ野球の詳しいデータを掲載。チーム成績、選手成績。">
-    <meta name="keywords" content="読売ジャイアンツ,打者成績,バッター,打席数,プロ野球,野球,データ,成績,セイバーメトリクス,スタッツ">
-    <meta http-equiv="Content-Style-Type" content="text/css">
-    <meta http-equiv="Content-Script-Type" content="text/javascript">
-    <link rel="stylesheet" href="https://baseball-data.com/style.css?1" type="text/css">
-    <link rel = "icon" href = 
-    "icon20.png" 
-            type = "image/x-icon">
-    
-    
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-    ga('create', 'UA-7644040-6', 'auto');
-    ga('send', 'pageview');
-    </script>
-    <meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=baseball-data.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=baseball-data.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=baseball-data.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=baseball-data.com"></script></head>
-    
-    <body style="padding: 0px;">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-7644040-6', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A7CQXglZzTrThjGTBEn1rWTxHOEtkWivwzgea+NjyardrwlieSjVuyG44PkYgIPGs8Q9svD8sF3Yedn0BBBjXAkAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A3vKT9yxRPjmXN3DpIiz58f5JykcWHjUo/W7hvmtjgh9jPpQgem9VbADiNovG8NkO6mRmk70Kex8/KUqAYWVWAEAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A4A26Ymj79UVY7C7JGUS4BG1s7MdcDokAQf/RP0paks+RoTYbXHxceT/5L4iKcsleFCngi75YfNRGW2+SpVv1ggAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="></head>
+  
+  <body>
     <div id="top"></div>
     <div id="container">
     
-    <div id="header">
-    <div style="float:left;width:470px;">
-    <a href="https://baseball-data.com/"><img src="title5.png" class="title-logo" alt=""></a>
-    <h1>プロ野球のデータが満載！チーム・選手の成績やセイバーメトリクスに使われる指標、他のサイトでは見られないユニークなデータを掲載しています</h1>
-    </div>
+      <div id="header">
+      </div>
+      
+      <div style="clear:both; margin-bottom:5px;"></div>
+      
+      
+      <div id="main">
+        <img src="phonto (2).jpg" alt="写真" width="500" height="130">
+       
+     
+        <strong style="color:#ff9900;">チーム</strong>
+      <div class="button_row">
+        <a href="https://ryoichi-yoshizawa.github.io/team2-2/ヤクルト/選手.html" class="btn_1"><span>ヤクルト</span></a>
+        　<a href="https://ryoichi-yoshizawa.github.io/team2-2/阪神/選手.html" class="btn_3"><span>阪神</span></a>
+        　<a href="https://ryoichi-yoshizawa.github.io/team2-2/DeNA/選手.html" class="btn_4"><span>DeNA</span></a>
+        　<a href="https://ryoichi-yoshizawa.github.io/team2-2/広島/選手.html" class="btn_2"><span>広島</span></a>
+        　<a href="https://ryoichi-yoshizawa.github.io/team2-2/中日/選手.html" class="btn_5"><span>中日</span></a>
+      </div>
     
-    
-    </div>
-    
-    <div style="clear:both; margin-bottom:5px;"></div>
-    
-    
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    </div>
-    
-    
-    
-    
-    <div id="main">
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e;">チーム</strong>
-     | <a href="https://baseball-data.com/stats/hitter2-all/tpa-2.html">全球団</a>
-     | <a href="https://baseball-data.com/stats/hitter2-ce/tpa-2.html">セ･リーグ</a>
-     | <a href="https://baseball-data.com/stats/hitter2-pa/tpa-2.html">パ･リーグ</a>
-     | <a href="https://baseball-data.com/stats/hitter2-s/tpa-1.html">ヤクルト</a>
-     | <a href="https://baseball-data.com/stats/hitter2-yb/tpa-1.html">DeNA</a>
-     | <a href="https://baseball-data.com/stats/hitter2-t/tpa-1.html">阪神</a>
-     | <strong>巨人</strong>
-     | <a href="https://baseball-data.com/stats/hitter2-c/tpa-1.html">広島</a>
-     | <a href="https://baseball-data.com/stats/hitter2-d/tpa-1.html">中日</a>
-     | <a href="https://baseball-data.com/stats/hitter2-bs/tpa-1.html">オリックス</a>
-     | <a href="https://baseball-data.com/stats/hitter2-h/tpa-1.html">ソフトバンク</a>
-     | <a href="https://baseball-data.com/stats/hitter2-l/tpa-1.html">西武</a>
-     | <a href="https://baseball-data.com/stats/hitter2-e/tpa-1.html">楽天</a>
-     | <a href="https://baseball-data.com/stats/hitter2-m/tpa-1.html">ロッテ</a>
-     | <a href="https://baseball-data.com/stats/hitter2-f/tpa-1.html">日本ハム</a>
-    
-    </div>
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e">巨人</strong>
-     | <a href="https://baseball-data.com/player/g/">選手一覧</a>
-    
-     | <strong>打者成績</strong>
-     | <a href="https://baseball-data.com/stats/pitcher-g/">投手成績</a>
-    
-     | <a href="https://baseball-data.com/lineup/g.html">スタメン</a>
-     | <a href="https://baseball-data.com/starter/g.html">先発投手</a>
-    
-     | <a href="https://baseball-data.com/stats-farm/hitter-g/tpa-1.html">打者成績(ファーム)</a>
-     | <a href="https://baseball-data.com/stats-farm/pitcher-g/">投手成績(ファーム)</a>
-    
-    </div>
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e">ランキング</strong>
-     | <strong>打席数</strong>
-     | <a href="https://baseball-data.com/stats/hitter2-g/avg-3.html">打率</a>
-     | <a href="https://baseball-data.com/stats/hitter2-g/hr-1.html">本塁打</a>
-     | <a href="https://baseball-data.com/stats/hitter2-g/rbi-1.html">打点</a>
-     | <a href="https://baseball-data.com/stats/hitter2-g/sb-1.html">盗塁</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/ip3-1.html">投球回</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/era-3.html">防御率</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/win-1.html">勝利数</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/so-1.html">奪三振</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/save-1.html">セーブ</a>
-    
-    </div>
-    <div class="bbf-menu">
-    <strong style="color:#d2691e">プロ野球Freak</strong> |
-    <a href="https://baseball-freak.com/game/giants.html" target="_blank">試合日程・結果</a> |
-    <a href="https://baseball-freak.com/calendar/giants.html" target="_blank">カレンダー</a> |
-    <a href="https://baseball-freak.com/rotation/giants.html" target="_blank">先発ローテーション</a> |
-    <a href="https://baseball-freak.com/audience/giants.html" target="_blank">観客動員数</a> |
-    <a href="https://baseball-freak.com/chart/" target="_blank">貯金・順位推移グラフ</a> |
-    <a href="https://baseball-freak.com/news/giants.html" target="_blank">ニュース</a> |
-    <a href="https://baseball-freak.com/birthday/" target="_blank">選手誕生日</a> |
-    <a href="https://baseball-freak.com/starter.html" target="_blank">予告先発</a>
-    </div>
-    <div class="year-menu">
-    <strong style="color:#1e69d2">シーズン</strong>
-     | <strong>2023</strong> | <a href="https://baseball-data.com/22/stats/hitter2-g/tpa-1.html">2022</a> | <a href="https://baseball-data.com/21/stats/hitter2-g/tpa-1.html">2021</a> | <a href="https://baseball-data.com/20/stats/hitter2-g/tpa-1.html">2020</a> | <a href="https://baseball-data.com/19/stats/hitter2-g/tpa-1.html">2019</a> | <a href="https://baseball-data.com/18/stats/hitter2-g/tpa-1.html">2018</a> | <a href="https://baseball-data.com/17/stats/hitter2-g/tpa-1.html">2017</a> | <a href="https://baseball-data.com/16/stats/hitter2-g/tpa-1.html">2016</a> | <a href="https://baseball-data.com/15/stats/hitter2-g/tpa-1.html">2015</a> | <a href="https://baseball-data.com/14/stats/hitter2-g/tpa-1.html">2014</a> | <a href="https://baseball-data.com/13/stats/hitter2-g/tpa-1.html">2013</a> | <a href="https://baseball-data.com/12/stats/hitter2-g/tpa-1.html">2012</a> | <a href="https://baseball-data.com/11/stats/hitter2-g/tpa-1.html">2011</a> | <a href="https://baseball-data.com/10/stats/hitter2-g/tpa-1.html">2010</a> | <a href="https://baseball-data.com/09/stats/hitter2-g/tpa-1.html">2009</a>
-    </div>
-    
-    <div style="position:relative;">
-    <h2 class="pname" style="border-bottom:5px solid #ff9900;"><img src="https://baseball-data.com/image/icon/g.png" class="icon-team">読売ジャイアンツ打者成績</h2>
-    <p style="position:absolute; top:10px;right:10px; font-size:12px;">
-    6月11日終了時
-    </p>
-    </div>
-    
-    <div style="margin:0 10px 5px; ">
+      <strong style="color:#ff9900">チーム</strong>
+      <strong style="color:#ff9900">巨人</strong>
+      <div class="button_row">
+        <a href="https://ryoichi-yoshizawa.github.io/team2-2/巨人/選手.html" class="btn_a"><span>選手一覧</span></a>
+        <a href="https://ryoichi-yoshizawa.github.io/team2-2/巨人/打者.html" class="btn_a"><span>打者成績</span></a>
+        <a href="https://ryoichi-yoshizawa.github.io/team2-2/巨人/先発.html" class="btn_a"><span>先発投手</span></a>
+        <a href="https://ryoichi-yoshizawa.github.io/team2-2/巨人/スタメン.html" class="btn_a"><span>スタメン</span></a>
+      
+      </div>
   
-    　<strong>基本成績</strong>
-    　<a href="https://baseball-data.com/stats/hitter3-g/tpa-1.html">総合指標</a>
+  <div class="sub-menu">
+  <strong style="color:#d2691e">ランキング</strong>
+   | <strong>打席数</strong>
+   | <a href="https://baseball-data.com/stats/hitter-g/avg-3.html">打率</a>
+   | <a href="https://baseball-data.com/stats/hitter-g/hr-1.html">本塁打</a>
+   | <a href="https://baseball-data.com/stats/hitter-g/rbi-1.html">打点</a>
+   | <a href="https://baseball-data.com/stats/hitter-g/sb-1.html">盗塁</a>
+
+  
+  </div>
  
-    
-    </div>
-    
-    
-    <table id="tbl" class="tablesorter stats" cellspacing="1">
-    <thead>
-    <tr>
-    <th>背<br>番<br>号</th><th style="width:130px">選手名</th><th>打<br>率</th><th>試<br>合</th><th>打<br>席<br>数</th><th>打<br>数</th><th>得<br>点</th><th>安<br>打</th><th>二<br>塁<br>打</th><th>三<br>塁<br>打</th><th>本<br>塁<br>打</th><th>塁<br>打</th><th>打<br>点</th><th>盗<br>塁</th><th>盗<br>塁<br>刺</th><th>犠<br>打</th><th>犠<br>飛</th><th>四<br>球</th><th>敬<br>遠</th><th>死<br>球</th><th>三<br>振</th><th>併<br>殺<br>打</th><th>出<br>塁<br>率</th><th>長<br>打<br>率</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr><td style="text-align:center;">25</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B2%A1%E6%9C%AC%E3%80%80%E5%92%8C%E7%9C%9F">岡本　和真</a></td><td>.319</td><td>59</td><td style="background-color:#efe;font-weight:bold;">248</td><td>216</td><td>33</td><td>69</td><td>11</td><td>0</td><td>15</td><td>125</td><td>35</td><td>0</td><td>1</td><td>0</td><td>2</td><td>26</td><td>3</td><td>4</td><td>46</td><td>5</td><td>.399</td><td>.579</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">6</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%9D%82%E6%9C%AC%E3%80%80%E5%8B%87%E4%BA%BA">坂本　勇人</a></td><td>.250</td><td>56</td><td style="background-color:#efe;font-weight:bold;">221</td><td>196</td><td>17</td><td>49</td><td>12</td><td>0</td><td>8</td><td>85</td><td>24</td><td>2</td><td>0</td><td>3</td><td>0</td><td>22</td><td>1</td><td>0</td><td>36</td><td>2</td><td>.326</td><td>.434</td></tr>
-    <tr><td style="text-align:center;">24</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%A4%A7%E5%9F%8E%E3%80%80%E5%8D%93%E4%B8%89">大城　卓三</a></td><td>.268</td><td>56</td><td style="background-color:#efe;font-weight:bold;">207</td><td>190</td><td>30</td><td>51</td><td>8</td><td>1</td><td>9</td><td>88</td><td>25</td><td>0</td><td>0</td><td>4</td><td>1</td><td>10</td><td>2</td><td>2</td><td>49</td><td>5</td><td>.310</td><td>.463</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">8</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%B8%E3%80%80%E4%BD%B3%E6%B5%A9">丸　佳浩</a></td><td>.232</td><td>54</td><td style="background-color:#efe;font-weight:bold;">201</td><td>181</td><td>25</td><td>42</td><td>7</td><td>0</td><td>8</td><td>73</td><td>18</td><td>2</td><td>1</td><td>1</td><td>0</td><td>19</td><td>1</td><td>0</td><td>29</td><td>3</td><td>.305</td><td>.403</td></tr>
-    <tr><td style="text-align:center;">2</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%90%89%E5%B7%9D%E3%80%80%E5%B0%9A%E8%BC%9D">吉川　尚輝</a></td><td>.239</td><td>55</td><td style="background-color:#efe;font-weight:bold;">175</td><td>159</td><td>18</td><td>38</td><td>12</td><td>0</td><td>1</td><td>53</td><td>11</td><td>0</td><td>1</td><td>3</td><td>1</td><td>8</td><td>0</td><td>4</td><td>26</td><td>2</td><td>.291</td><td>.333</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">10</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%AD%E7%94%B0%E3%80%80%E7%BF%94">中田　翔</a></td><td>.292</td><td>42</td><td style="background-color:#efe;font-weight:bold;">155</td><td>144</td><td>17</td><td>42</td><td>5</td><td>1</td><td>8</td><td>73</td><td>17</td><td>0</td><td>0</td><td>0</td><td>1</td><td>10</td><td>3</td><td>0</td><td>33</td><td>7</td><td>.335</td><td>.507</td></tr>
-    <tr><td style="text-align:center;">42</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E3%83%96%E3%83%AA%E3%83%B3%E3%82%BD%E3%83%B3">ブリンソン</a></td><td>.238</td><td>47</td><td style="background-color:#efe;font-weight:bold;">154</td><td>147</td><td>11</td><td>35</td><td>8</td><td>0</td><td>5</td><td>58</td><td>22</td><td>0</td><td>1</td><td>0</td><td>1</td><td>5</td><td>1</td><td>1</td><td>37</td><td>2</td><td>.266</td><td>.395</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">55</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E7%A7%8B%E5%BA%83%E3%80%80%E5%84%AA%E4%BA%BA">秋広　優人</a></td><td>.322</td><td>41</td><td style="background-color:#efe;font-weight:bold;">151</td><td>143</td><td>14</td><td>46</td><td>6</td><td>2</td><td>4</td><td>68</td><td>18</td><td>0</td><td>0</td><td>0</td><td>1</td><td>6</td><td>1</td><td>1</td><td>29</td><td>4</td><td>.351</td><td>.476</td></tr>
-    <tr><td style="text-align:center;">35</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%96%80%E8%84%87%E3%80%80%E8%AA%A0">門脇　誠</a></td><td>.177</td><td>47</td><td style="background-color:#efe;font-weight:bold;">103</td><td>96</td><td>7</td><td>17</td><td>2</td><td>0</td><td>1</td><td>22</td><td>8</td><td>3</td><td>1</td><td>4</td><td>0</td><td>3</td><td>1</td><td>0</td><td>24</td><td>2</td><td>.202</td><td>.229</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">50</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E3%82%AA%E3%82%B3%E3%82%A8%E3%80%80%E7%91%A0%E5%81%89">オコエ　瑠偉</a></td><td>.253</td><td>27</td><td style="background-color:#efe;font-weight:bold;">102</td><td>95</td><td>11</td><td>24</td><td>5</td><td>0</td><td>2</td><td>35</td><td>6</td><td>0</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>2</td><td>26</td><td>1</td><td>.304</td><td>.368</td></tr>
-    <tr><td style="text-align:center;">13</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%A2%B6%E8%B0%B7%E3%80%80%E9%9A%86%E5%B9%B8">梶谷　隆幸</a></td><td>.278</td><td>35</td><td style="background-color:#efe;font-weight:bold;">85</td><td>79</td><td>7</td><td>22</td><td>3</td><td>0</td><td>1</td><td>28</td><td>6</td><td>1</td><td>0</td><td>0</td><td>0</td><td>5</td><td>0</td><td>1</td><td>20</td><td>0</td><td>.329</td><td>.354</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">40</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%AD%E5%B1%B1%E3%80%80%E7%A4%BC%E9%83%BD">中山　礼都</a></td><td>.263</td><td>33</td><td style="background-color:#efe;font-weight:bold;">82</td><td>76</td><td>3</td><td>20</td><td>3</td><td>0</td><td>0</td><td>23</td><td>3</td><td>3</td><td>0</td><td>2</td><td>0</td><td>4</td><td>0</td><td>0</td><td>13</td><td>2</td><td>.300</td><td>.303</td></tr>
-    <tr><td style="text-align:center;">44</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AB%E3%83%BC">ウォーカー</a></td><td>.286</td><td>36</td><td style="background-color:#efe;font-weight:bold;">79</td><td>77</td><td>12</td><td>22</td><td>2</td><td>1</td><td>6</td><td>44</td><td>18</td><td>0</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>24</td><td>1</td><td>.304</td><td>.571</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">7</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%95%B7%E9%87%8E%E3%80%80%E4%B9%85%E7%BE%A9">長野　久義</a></td><td>.219</td><td>25</td><td style="background-color:#efe;font-weight:bold;">36</td><td>32</td><td>1</td><td>7</td><td>1</td><td>0</td><td>1</td><td>11</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>2</td><td>0</td><td>10</td><td>1</td><td>.306</td><td>.344</td></tr>
-    <tr><td style="text-align:center;">32</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%BB%A3%E5%B2%A1%E3%80%80%E5%A4%A7%E5%BF%97">廣岡　大志</a></td><td>.214</td><td>9</td><td style="background-color:#efe;font-weight:bold;">30</td><td>28</td><td>5</td><td>6</td><td>0</td><td>0</td><td>1</td><td>9</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>8</td><td>0</td><td>.233</td><td>.321</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">43</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%87%8D%E4%BF%A1%E3%80%80%E6%85%8E%E4%B9%8B%E4%BB%8B">重信　慎之介</a></td><td>.357</td><td>20</td><td style="background-color:#efe;font-weight:bold;">17</td><td>14</td><td>6</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td><td>0</td><td>4</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>0</td><td>4</td><td>1</td><td>.471</td><td>.357</td></tr>
-    <tr><td style="text-align:center;">59</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%9D%BE%E5%8E%9F%E3%80%80%E8%81%96%E5%BC%A5">松原　聖弥</a></td><td>.000</td><td>14</td><td style="background-color:#efe;font-weight:bold;">9</td><td>8</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>.111</td><td>.000</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">23</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%9D%BE%E7%94%B0%E3%80%80%E5%AE%A3%E6%B5%A9">松田　宣浩</a></td><td>.111</td><td>8</td><td style="background-color:#efe;font-weight:bold;">9</td><td>9</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>0</td><td>.111</td><td>.111</td></tr>
-    <tr><td style="text-align:center;">22</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B0%8F%E6%9E%97%E3%80%80%E8%AA%A0%E5%8F%B8">小林　誠司</a></td><td>.000</td><td>14</td><td style="background-color:#efe;font-weight:bold;">8</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>.000</td><td>.000</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">67</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B1%B1%E7%80%AC%E3%80%80%E6%85%8E%E4%B9%8B%E5%8A%A9">山瀬　慎之助</a></td><td>.143</td><td>5</td><td style="background-color:#efe;font-weight:bold;">7</td><td>7</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>.143</td><td>.143</td></tr>
-    <tr><td style="text-align:center;">12</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E8%90%A9%E5%B0%BE%E3%80%80%E5%8C%A1%E4%B9%9F">萩尾　匡也</a></td><td>.143</td><td>4</td><td style="background-color:#efe;font-weight:bold;">7</td><td>7</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>0</td><td>.143</td><td>.143</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">60</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E8%8F%8A%E7%94%B0%E3%80%80%E6%8B%A1%E5%92%8C">菊田　拡和</a></td><td>.000</td><td>6</td><td style="background-color:#efe;font-weight:bold;">6</td><td>5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>.167</td><td>.000</td></tr>
-    <tr><td style="text-align:center;">38</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B2%A1%E7%94%B0%E3%80%80%E6%82%A0%E5%B8%8C">岡田　悠希</a></td><td>.000</td><td>4</td><td style="background-color:#efe;font-weight:bold;">5</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>.200</td><td>.000</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">27</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B2%B8%E7%94%B0%E3%80%80%E8%A1%8C%E5%80%AB">岸田　行倫</a></td><td>.000</td><td>6</td><td style="background-color:#efe;font-weight:bold;">4</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>.000</td><td>.000</td></tr>
-    <tr><td style="text-align:center;">52</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%8C%97%E6%9D%91%E3%80%80%E6%8B%93%E5%B7%B1">北村　拓己</a></td><td>.000</td><td>2</td><td style="background-color:#efe;font-weight:bold;">3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>.000</td><td>.000</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">37</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E8%8B%A5%E6%9E%97%E3%80%80%E6%99%83%E5%BC%98">若林　晃弘</a></td><td>.000</td><td>4</td><td style="background-color:#efe;font-weight:bold;">2</td><td>1</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>.500</td><td>.000</td></tr>
-    <tr><td style="text-align:center;">0</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%A2%97%E7%94%B0%E3%80%80%E5%A4%A7%E8%BC%9D">増田　大輝</a></td><td>.000</td><td>7</td><td style="background-color:#efe;font-weight:bold;">0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>.000</td><td>.000</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">00</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%B9%AF%E6%B5%85%E3%80%80%E5%A4%A7">湯浅　大</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-    <tr><td style="text-align:center;">5</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%AD%E5%B3%B6%E3%80%80%E5%AE%8F%E4%B9%8B">中島　宏之</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">36</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E7%9F%B3%E5%B7%9D%E3%80%80%E6%85%8E%E5%90%BE">石川　慎吾</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-    <tr><td style="text-align:center;">51</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%B5%85%E9%87%8E%E3%80%80%E7%BF%94%E5%90%BE">浅野　翔吾</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">61</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%A2%97%E7%94%B0%E3%80%80%E9%99%B8">増田　陸</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-    <tr><td style="text-align:center;">66</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%A6%99%E6%9C%88%E3%80%80%E4%B8%80%E4%B9%9F">香月　一也</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-    <tr style="background-color:#f4f4f4;"><td style="text-align:center;">94</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%96%9C%E5%A4%9A%E3%80%80%E9%9A%86%E4%BB%8B">喜多　隆介</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-    
-    </tbody>
-    <thead>
-    <tr>
-    <th>背<br>番<br>号</th><th style="width:130px">選手名</th><th>打<br>率</th><th>試<br>合</th><th>打<br>席<br>数</th><th>打<br>数</th><th>得<br>点</th><th>安<br>打</th><th>二<br>塁<br>打</th><th>三<br>塁<br>打</th><th>本<br>塁<br>打</th><th>塁<br>打</th><th>打<br>点</th><th>盗<br>塁</th><th>盗<br>塁<br>刺</th><th>犠<br>打</th><th>犠<br>飛</th><th>四<br>球</th><th>敬<br>遠</th><th>死<br>球</th><th>三<br>振</th><th>併<br>殺<br>打</th><th>出<br>塁<br>率</th><th>長<br>打<br>率</th>
-    </tr>
-    </thead>
-    </table>
-    
-    <div style="width:800px; text-align:center; margin:0 auto 10px; clear:both; ">
-    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle" style="display: block; text-align: center; height: 0px;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2613098592193304" data-ad-slot="9767395847" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_1_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 800px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_1" name="aswift_1" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 800px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="800" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2613098592193304&amp;output=html&amp;h=200&amp;slotname=9767395847&amp;adk=1216812606&amp;adf=3626847298&amp;pi=t.ma~as.9767395847&amp;w=800&amp;fwrn=4&amp;lmt=1686574308&amp;rafmt=11&amp;format=800x200&amp;url=https%3A%2F%2Fbaseball-data.com%2Fstats%2Fhitter2-g%2Ftpa-1.html&amp;wgl=1&amp;uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE0LjAuNTczNS4xMTAiLFtdLDAsbnVsbCwiNjQiLFtbIk5vdC5BL0JyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxMTQuMC41NzM1LjExMCJdLFsiR29vZ2xlIENocm9tZSIsIjExNC4wLjU3MzUuMTEwIl1dLDBd&amp;dt=1686574308899&amp;bpp=1&amp;bdt=207&amp;idt=50&amp;shv=r20230607&amp;mjsv=m202306070101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Dd4625ff68ef49bb0-2287ddcfa5e0002e%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma8waALOox7dQ5e2qK3Zu0yi_IILA&amp;gpic=UID%3D00000c043de2b149%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma1HvONRa8DluytcysqOdB6s43KcA&amp;prev_fmts=728x90&amp;correlator=4158321070006&amp;frm=20&amp;pv=1&amp;ga_vid=217361495.1683783907&amp;ga_sid=1686574309&amp;ga_hid=1019763528&amp;ga_fc=1&amp;ga_cid=782618073.1686555185&amp;rplot=4&amp;u_tz=540&amp;u_his=2&amp;u_h=800&amp;u_w=1280&amp;u_ah=752&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1.5&amp;dmc=8&amp;adx=232&amp;ady=1525&amp;biw=1263&amp;bih=681&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759842%2C44759927%2C31075205%2C44785295%2C44788442&amp;oid=2&amp;pvsid=3752384015592353&amp;tmod=1922491122&amp;uas=0&amp;nvt=1&amp;fc=896&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C752%2C1280%2C681&amp;vis=1&amp;rsz=%7C%7CeEbr%7C&amp;abl=CS&amp;pfx=0&amp;fu=128&amp;bc=31&amp;ifi=2&amp;uci=a!2&amp;btvi=1&amp;fsb=1&amp;xpc=QSfe7ZfBT4&amp;p=https%3A//baseball-data.com&amp;dtd=57" data-google-container-id="a!2" data-google-query-id="CKTAl_Tivf8CFeuI6QUdpTELBg" data-load-complete="true"></iframe></div></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    </div>
-    
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e;">チーム</strong>
-     | <a href="https://baseball-data.com/stats/hitter2-all/tpa-2.html">全球団</a>
-     | <a href="https://baseball-data.com/stats/hitter2-ce/tpa-2.html">セ･リーグ</a>
-     | <a href="https://baseball-data.com/stats/hitter2-pa/tpa-2.html">パ･リーグ</a>
-     | <a href="https://baseball-data.com/stats/hitter2-s/tpa-1.html">ヤクルト</a>
-     | <a href="https://baseball-data.com/stats/hitter2-yb/tpa-1.html">DeNA</a>
-     | <a href="https://baseball-data.com/stats/hitter2-t/tpa-1.html">阪神</a>
-     | <strong>巨人</strong>
-     | <a href="https://baseball-data.com/stats/hitter2-c/tpa-1.html">広島</a>
-     | <a href="https://baseball-data.com/stats/hitter2-d/tpa-1.html">中日</a>
-     | <a href="https://baseball-data.com/stats/hitter2-bs/tpa-1.html">オリックス</a>
-     | <a href="https://baseball-data.com/stats/hitter2-h/tpa-1.html">ソフトバンク</a>
-     | <a href="https://baseball-data.com/stats/hitter2-l/tpa-1.html">西武</a>
-     | <a href="https://baseball-data.com/stats/hitter2-e/tpa-1.html">楽天</a>
-     | <a href="https://baseball-data.com/stats/hitter2-m/tpa-1.html">ロッテ</a>
-     | <a href="https://baseball-data.com/stats/hitter2-f/tpa-1.html">日本ハム</a>
-    
-    </div>
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e">巨人</strong>
-     | <a href="https://baseball-data.com/player/g/">選手一覧</a>
-    
-     | <strong>打者成績</strong>
-     | <a href="https://baseball-data.com/stats/pitcher-g/">投手成績</a>
-    
-     | <a href="https://baseball-data.com/lineup/g.html">スタメン</a>
-     | <a href="https://baseball-data.com/starter/g.html">先発投手</a>
-    
-     | <a href="https://baseball-data.com/stats-farm/hitter-g/tpa-1.html">打者成績(ファーム)</a>
-     | <a href="https://baseball-data.com/stats-farm/pitcher-g/">投手成績(ファーム)</a>
-    
-    </div>
-    
-    <div class="sub-menu">
-    <strong style="color:#d2691e">ランキング</strong>
-     | <strong>打席数</strong>
-     | <a href="https://baseball-data.com/stats/hitter2-g/avg-3.html">打率</a>
-     | <a href="https://baseball-data.com/stats/hitter2-g/hr-1.html">本塁打</a>
-     | <a href="https://baseball-data.com/stats/hitter2-g/rbi-1.html">打点</a>
-     | <a href="https://baseball-data.com/stats/hitter2-g/sb-1.html">盗塁</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/ip3-1.html">投球回</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/era-3.html">防御率</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/win-1.html">勝利数</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/so-1.html">奪三振</a>
-     | <a href="https://baseball-data.com/stats/pitcher-g/save-1.html">セーブ</a>
-    
-    </div>
-    
-    <div class="right">
-    <a href="#">▲ページの先頭へ</a>
-    </div>
-    
-    </div> <!-- main -->
-    
-    <div class="ad">
-    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- BBD ボトム -->
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2613098592193304" data-ad-slot="6235927481" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 90px; width: 728px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:728px;height:90px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2613098592193304&amp;output=html&amp;h=90&amp;slotname=6235927481&amp;adk=6045774&amp;adf=2918730822&amp;pi=t.ma~as.6235927481&amp;w=728&amp;lmt=1686574308&amp;format=728x90&amp;url=https%3A%2F%2Fbaseball-data.com%2Fstats%2Fhitter2-g%2Ftpa-1.html&amp;wgl=1&amp;uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE0LjAuNTczNS4xMTAiLFtdLDAsbnVsbCwiNjQiLFtbIk5vdC5BL0JyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxMTQuMC41NzM1LjExMCJdLFsiR29vZ2xlIENocm9tZSIsIjExNC4wLjU3MzUuMTEwIl1dLDBd&amp;dt=1686574308900&amp;bpp=2&amp;bdt=208&amp;idt=59&amp;shv=r20230607&amp;mjsv=m202306070101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Dd4625ff68ef49bb0-2287ddcfa5e0002e%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma8waALOox7dQ5e2qK3Zu0yi_IILA&amp;gpic=UID%3D00000c043de2b149%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma1HvONRa8DluytcysqOdB6s43KcA&amp;prev_fmts=728x90%2C800x200&amp;correlator=4158321070006&amp;frm=20&amp;pv=1&amp;ga_vid=217361495.1683783907&amp;ga_sid=1686574309&amp;ga_hid=1019763528&amp;ga_fc=1&amp;ga_cid=782618073.1686555185&amp;u_tz=540&amp;u_his=2&amp;u_h=800&amp;u_w=1280&amp;u_ah=752&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1.5&amp;dmc=8&amp;adx=268&amp;ady=1856&amp;biw=1263&amp;bih=681&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759842%2C44759927%2C31075205%2C44785295%2C44788442&amp;oid=2&amp;pvsid=3752384015592353&amp;tmod=1922491122&amp;uas=0&amp;nvt=1&amp;fc=896&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C752%2C1280%2C681&amp;vis=1&amp;rsz=%7C%7CeEbr%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;ifi=3&amp;uci=a!3&amp;btvi=2&amp;fsb=1&amp;xpc=CBsV4JNjaI&amp;p=https%3A//baseball-data.com&amp;dtd=64" data-google-container-id="a!3" data-google-query-id="CIW4l_Tivf8CFRM4vQod4Y4CBw" data-load-complete="true"></iframe></div></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    </div>
-    
-    
-    </div> <!-- container -->
-    
-    
-    <div id="footer">
-    <p>
-    <a href="https://baseball-freak.com/" target="_blank">プロ野球Freak</a> |
-    <a href="https://baseball-data.com/bp/">ブログパーツ</a> |
-    <a href="https://baseball-data.com/about.php">お問い合わせ・免責事項・リンク</a>
-    </p>
-    
-    <p>
-    Copyright (C) 2009- <a href="https://baseball-data.com/">プロ野球データFreak</a> All Rights Reserved.
-    </p>
-    </div>
-    
-    
-    
-    
-    <ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_3_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-2613098592193304&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1686574308&amp;plat=8%3A134217728%2C9%3A134250504%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;plas=135x616_l%7C154x616_r&amp;format=0x0&amp;url=https%3A%2F%2Fbaseball-data.com%2Fstats%2Fhitter2-g%2Ftpa-1.html&amp;ea=0&amp;pra=7&amp;wgl=1&amp;uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTE0LjAuNTczNS4xMTAiLFtdLDAsbnVsbCwiNjQiLFtbIk5vdC5BL0JyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxMTQuMC41NzM1LjExMCJdLFsiR29vZ2xlIENocm9tZSIsIjExNC4wLjU3MzUuMTEwIl1dLDBd&amp;dt=1686574308904&amp;bpp=1&amp;bdt=212&amp;idt=63&amp;shv=r20230607&amp;mjsv=m202306070101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Dd4625ff68ef49bb0-2287ddcfa5e0002e%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma8waALOox7dQ5e2qK3Zu0yi_IILA&amp;gpic=UID%3D00000c043de2b149%3AT%3D1683783908%3ART%3D1686574213%3AS%3DALNI_Ma1HvONRa8DluytcysqOdB6s43KcA&amp;prev_fmts=728x90%2C800x200%2C728x90&amp;nras=1&amp;correlator=4158321070006&amp;frm=20&amp;pv=1&amp;ga_vid=217361495.1683783907&amp;ga_sid=1686574309&amp;ga_hid=1019763528&amp;ga_fc=1&amp;ga_cid=782618073.1686555185&amp;u_tz=540&amp;u_his=2&amp;u_h=800&amp;u_w=1280&amp;u_ah=752&amp;u_aw=1280&amp;u_cd=24&amp;u_sd=1.5&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1263&amp;bih=681&amp;scr_x=0&amp;scr_y=0&amp;eid=44759876%2C44759842%2C44759927%2C31075205%2C44785295%2C44788442&amp;oid=2&amp;pvsid=3752384015592353&amp;tmod=1922491122&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=896&amp;brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C752%2C1280%2C681&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;ifi=4&amp;uci=a!4&amp;fsb=1&amp;dtd=73" data-google-container-id="a!4" data-load-complete="true"></iframe></div></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="dismissed" style="display: none; width: 100% !important; height: 129px !important; bottom: -124px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;" data-ad-status="filled" data-anchor-shown="true"><div class="grippy-host"></div><div id="aswift_4_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_4" name="aswift_4" style="width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20230607/r20110914/zrt_lookup.html?fsb=1#RS-0-&amp;adk=1812271801&amp;client=ca-pub-2613098592193304&amp;fa=1&amp;ifi=5&amp;uci=a!5&amp;btvi=3&amp;xpc=FtVorqInN3&amp;p=https%3A//baseball-data.com" data-google-container-id="a!5" data-google-query-id="CJbJl_Tivf8CFc4LXAodHw0Mxg" data-load-complete="true"></iframe></div></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-side-rail-status="idle" style="display: none !important; z-index: 2147483647 !important;" data-ad-status="filled"><div id="aswift_5_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 600px; width: 135px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_5" name="aswift_5" style="width:135px !IMPORTANT;height:600px !IMPORTANT" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="135" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20230607/r20110914/zrt_lookup.html?fsb=1#RS-1-&amp;adk=1812271803&amp;client=ca-pub-2613098592193304&amp;fa=3&amp;ifi=6&amp;uci=a!6&amp;btvi=4&amp;xpc=xxGY4zBhuS&amp;p=https%3A//baseball-data.com" data-google-container-id="a!6" data-google-query-id="CJfJl_Tivf8CFc4LXAodHw0Mxg" data-load-complete="true"></iframe></div><span class="left-side-rail-edge" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 0px !important; top: 600px !important; width: 135px !important; height: 5px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"></span><span class="left-side-rail-dismiss-btn" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 43px !important; right: 43px !important; top: 605px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"><svg style="position: absolute !important; top: 0px !important; display: block !important; width: 50px !important; height: 30px !important; margin-top: -5px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="left-side-rail-drop-shadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feComponentTransfer in="SourceAlpha" result="TransferredAlpha"><feFuncR type="discrete" tableValues="0.5"></feFuncR><feFuncG type="discrete" tableValues="0.5"></feFuncG><feFuncB type="discrete" tableValues="0.5"></feFuncB></feComponentTransfer><feGaussianBlur in="TransferredAlpha" stdDeviation="2"></feGaussianBlur><feOffset dx="0" dy="0" result="offsetblur"></feOffset><feMerge><feMergeNode></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><path d="M5,5 L5,17 A8,8 0 0,0 13,25 L37,25 A8,8 0 0,0 45,17 L45,5 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#left-side-rail-drop-shadow&quot;);"></path><rect x="0" y="0" width="50" height="5" style="fill: rgb(250, 250, 250);"></rect><g stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="18" y1="18" x2="25" y2="12"></line><line x1="25" y1="12" x2="32" y2="18"></line></g></svg></span></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-side-rail-status="idle" style="display: none !important; z-index: 2147483647 !important;" data-ad-status="filled"><div id="aswift_6_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 308px; width: 154px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_6" name="aswift_6" style="width:154px !IMPORTANT;height:308px !IMPORTANT" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="154" height="308" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/html/r20230607/r20110914/zrt_lookup.html?fsb=1#RS-2-&amp;adk=1812271804&amp;client=ca-pub-2613098592193304&amp;fa=4&amp;ifi=7&amp;uci=a!7&amp;btvi=5&amp;xpc=ulpetrLBvC&amp;p=https%3A//baseball-data.com" data-google-container-id="a!7" data-google-query-id="CJjJl_Tivf8CFc4LXAodHw0Mxg" data-load-complete="true"></iframe></div><span class="right-side-rail-edge" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 0px !important; top: 308px !important; width: 154px !important; height: 5px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"></span><span class="right-side-rail-dismiss-btn" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 52px !important; right: 52px !important; top: 313px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"><svg style="position: absolute !important; top: 0px !important; display: block !important; width: 50px !important; height: 30px !important; margin-top: -5px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="right-side-rail-drop-shadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feComponentTransfer in="SourceAlpha" result="TransferredAlpha"><feFuncR type="discrete" tableValues="0.5"></feFuncR><feFuncG type="discrete" tableValues="0.5"></feFuncG><feFuncB type="discrete" tableValues="0.5"></feFuncB></feComponentTransfer><feGaussianBlur in="TransferredAlpha" stdDeviation="2"></feGaussianBlur><feOffset dx="0" dy="0" result="offsetblur"></feOffset><feMerge><feMergeNode></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><path d="M5,5 L5,17 A8,8 0 0,0 13,25 L37,25 A8,8 0 0,0 45,17 L45,5 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#right-side-rail-drop-shadow&quot;);"></path><rect x="0" y="0" width="50" height="5" style="fill: rgb(250, 250, 250);"></rect><g stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="18" y1="18" x2="25" y2="12"></line><line x1="25" y1="12" x2="32" y2="18"></line></g></svg></span></ins><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20230607/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>
+ 
+  
+  <div style="position:relative;">
+  <h2 class="pname" style="border-bottom:5px solid #ff9900;"><img src="https://baseball-data.com/image/icon/g.png" class="icon-team">読売ジャイアンツ打者成績</h2>
+  <p style="position:absolute; top:10px;right:10px; font-size:12px;">
+  全日程終了時
+  </p>
+  </div>
+  
+  
+  
+  <table id="tbl" class="tablesorter stats" cellspacing="1">
+  <thead>
+  <tr>
+  <th>背<br>番<br>号</th><th style="width:130px">選手名</th><th>打<br>率</th><th>試<br>合</th><th>打<br>席<br>数</th><th>打<br>数</th><th>安<br>打</th><th>本<br>塁<br>打</th><th>打<br>点</th><th>盗<br>塁</th><th>四<br>球</th><th>死<br>球</th><th>三<br>振</th><th>犠<br>打</th><th>併<br>殺<br>打</th><th>出<br>塁<br>率</th><th>長<br>打<br>率</th><th>O<br>P<br>S</th><th>R<br>C<br>2<br>7</th><th>X<br>R<br>2<br>7</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td style="text-align:center;">25</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B2%A1%E6%9C%AC%E3%80%80%E5%92%8C%E7%9C%9F">岡本　和真</a></td><td>.278</td><td>140</td><td style="background-color:#efe;font-weight:bold;">589</td><td>503</td><td>140</td><td>41</td><td>93</td><td>0</td><td>72</td><td>8</td><td>111</td><td>0</td><td>10</td><td>.374</td><td>.584</td><td>.958</td><td>7.61</td><td>7.55</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">24</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%A4%A7%E5%9F%8E%E3%80%80%E5%8D%93%E4%B8%89">大城　卓三</a></td><td>.281</td><td>134</td><td style="background-color:#efe;font-weight:bold;">490</td><td>424</td><td>119</td><td>16</td><td>55</td><td>0</td><td>36</td><td>5</td><td>109</td><td>21</td><td>12</td><td>.341</td><td>.446</td><td>.787</td><td>5.00</td><td>4.95</td></tr>
+  <tr><td style="text-align:center;">2</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%90%89%E5%B7%9D%E3%80%80%E5%B0%9A%E8%BC%9D">吉川　尚輝</a></td><td>.256</td><td>132</td><td style="background-color:#efe;font-weight:bold;">478</td><td>430</td><td>110</td><td>7</td><td>36</td><td>4</td><td>26</td><td>8</td><td>66</td><td>11</td><td>12</td><td>.308</td><td>.367</td><td>.676</td><td>3.60</td><td>3.59</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">6</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%9D%82%E6%9C%AC%E3%80%80%E5%8B%87%E4%BA%BA">坂本　勇人</a></td><td>.288</td><td>116</td><td style="background-color:#efe;font-weight:bold;">455</td><td>403</td><td>116</td><td>22</td><td>60</td><td>2</td><td>45</td><td>2</td><td>84</td><td>3</td><td>5</td><td>.361</td><td>.524</td><td>.884</td><td>6.89</td><td>6.69</td></tr>
+  <tr><td style="text-align:center;">55</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E7%A7%8B%E5%BA%83%E3%80%80%E5%84%AA%E4%BA%BA">秋広　優人</a></td><td>.273</td><td>121</td><td style="background-color:#efe;font-weight:bold;">439</td><td>406</td><td>111</td><td>10</td><td>41</td><td>0</td><td>26</td><td>2</td><td>79</td><td>2</td><td>9</td><td>.318</td><td>.401</td><td>.720</td><td>4.37</td><td>4.32</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">8</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%B8%E3%80%80%E4%BD%B3%E6%B5%A9">丸　佳浩</a></td><td>.244</td><td>121</td><td style="background-color:#efe;font-weight:bold;">431</td><td>385</td><td>94</td><td>18</td><td>47</td><td>4</td><td>42</td><td>0</td><td>62</td><td>1</td><td>5</td><td>.316</td><td>.413</td><td>.729</td><td>4.62</td><td>4.74</td></tr>
+  <tr><td style="text-align:center;">35</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%96%80%E8%84%87%E3%80%80%E8%AA%A0">門脇　誠</a></td><td>.263</td><td>126</td><td style="background-color:#efe;font-weight:bold;">348</td><td>316</td><td>83</td><td>3</td><td>21</td><td>11</td><td>18</td><td>0</td><td>58</td><td>14</td><td>4</td><td>.302</td><td>.335</td><td>.638</td><td>3.42</td><td>3.31</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">42</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E3%83%96%E3%83%AA%E3%83%B3%E3%82%BD%E3%83%B3">ブリンソン</a></td><td>.248</td><td>88</td><td style="background-color:#efe;font-weight:bold;">294</td><td>282</td><td>70</td><td>11</td><td>35</td><td>1</td><td>9</td><td>1</td><td>71</td><td>0</td><td>4</td><td>.272</td><td>.422</td><td>.694</td><td>3.80</td><td>3.82</td></tr>
+  <tr><td style="text-align:center;">13</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%A2%B6%E8%B0%B7%E3%80%80%E9%9A%86%E5%B9%B8">梶谷　隆幸</a></td><td>.275</td><td>102</td><td style="background-color:#efe;font-weight:bold;">291</td><td>265</td><td>73</td><td>2</td><td>19</td><td>2</td><td>17</td><td>3</td><td>45</td><td>6</td><td>2</td><td>.326</td><td>.328</td><td>.655</td><td>3.91</td><td>3.81</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">10</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%AD%E7%94%B0%E3%80%80%E7%BF%94">中田　翔</a></td><td>.255</td><td>92</td><td style="background-color:#efe;font-weight:bold;">288</td><td>263</td><td>67</td><td>15</td><td>37</td><td>0</td><td>19</td><td>2</td><td>63</td><td>0</td><td>10</td><td>.306</td><td>.464</td><td>.769</td><td>4.51</td><td>4.68</td></tr>
+  <tr><td style="text-align:center;">7</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%95%B7%E9%87%8E%E3%80%80%E4%B9%85%E7%BE%A9">長野　久義</a></td><td>.259</td><td>75</td><td style="background-color:#efe;font-weight:bold;">176</td><td>158</td><td>41</td><td>6</td><td>19</td><td>1</td><td>17</td><td>0</td><td>40</td><td>0</td><td>2</td><td>.330</td><td>.430</td><td>.760</td><td>5.03</td><td>4.97</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">40</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%AD%E5%B1%B1%E3%80%80%E7%A4%BC%E9%83%BD">中山　礼都</a></td><td>.239</td><td>78</td><td style="background-color:#efe;font-weight:bold;">147</td><td>138</td><td>33</td><td>0</td><td>3</td><td>5</td><td>7</td><td>0</td><td>30</td><td>2</td><td>5</td><td>.276</td><td>.290</td><td>.566</td><td>2.35</td><td>2.30</td></tr>
+  <tr><td style="text-align:center;">50</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E3%82%AA%E3%82%B3%E3%82%A8%E3%80%80%E7%91%A0%E5%81%89">オコエ　瑠偉</a></td><td>.235</td><td>41</td><td style="background-color:#efe;font-weight:bold;">127</td><td>119</td><td>28</td><td>2</td><td>6</td><td>1</td><td>5</td><td>2</td><td>35</td><td>1</td><td>1</td><td>.278</td><td>.345</td><td>.622</td><td>3.16</td><td>3.12</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">44</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AB%E3%83%BC">ウォーカー</a></td><td>.263</td><td>57</td><td style="background-color:#efe;font-weight:bold;">120</td><td>118</td><td>31</td><td>6</td><td>20</td><td>1</td><td>2</td><td>0</td><td>39</td><td>0</td><td>1</td><td>.275</td><td>.483</td><td>.758</td><td>4.60</td><td>4.59</td></tr>
+  <tr><td style="text-align:center;">27</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B2%B8%E7%94%B0%E3%80%80%E8%A1%8C%E5%80%AB">岸田　行倫</a></td><td>.250</td><td>46</td><td style="background-color:#efe;font-weight:bold;">72</td><td>68</td><td>17</td><td>2</td><td>3</td><td>0</td><td>2</td><td>1</td><td>12</td><td>1</td><td>4</td><td>.282</td><td>.368</td><td>.649</td><td>2.75</td><td>2.75</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">43</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%87%8D%E4%BF%A1%E3%80%80%E6%85%8E%E4%B9%8B%E4%BB%8B">重信　慎之介</a></td><td>.157</td><td>67</td><td style="background-color:#efe;font-weight:bold;">57</td><td>51</td><td>8</td><td>0</td><td>1</td><td>10</td><td>5</td><td>0</td><td>16</td><td>1</td><td>1</td><td>.232</td><td>.157</td><td>.389</td><td>0.78</td><td>1.04</td></tr>
+  <tr><td style="text-align:center;">38</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B2%A1%E7%94%B0%E3%80%80%E6%82%A0%E5%B8%8C">岡田　悠希</a></td><td>.167</td><td>26</td><td style="background-color:#efe;font-weight:bold;">52</td><td>48</td><td>8</td><td>1</td><td>2</td><td>0</td><td>3</td><td>0</td><td>14</td><td>1</td><td>1</td><td>.216</td><td>.250</td><td>.466</td><td>1.19</td><td>1.38</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">51</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%B5%85%E9%87%8E%E3%80%80%E7%BF%94%E5%90%BE">浅野　翔吾</a></td><td>.250</td><td>24</td><td style="background-color:#efe;font-weight:bold;">41</td><td>40</td><td>10</td><td>1</td><td>2</td><td>0</td><td>1</td><td>0</td><td>14</td><td>0</td><td>0</td><td>.268</td><td>.350</td><td>.618</td><td>2.47</td><td>2.57</td></tr>
+  <tr><td style="text-align:center;">52</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%8C%97%E6%9D%91%E3%80%80%E6%8B%93%E5%B7%B1">北村　拓己</a></td><td>.206</td><td>27</td><td style="background-color:#efe;font-weight:bold;">38</td><td>34</td><td>7</td><td>0</td><td>0</td><td>0</td><td>2</td><td>1</td><td>7</td><td>1</td><td>3</td><td>.270</td><td>.235</td><td>.506</td><td>1.00</td><td>0.95</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">32</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%BB%A3%E5%B2%A1%E3%80%80%E5%A4%A7%E5%BF%97">廣岡　大志</a></td><td>.214</td><td>9</td><td style="background-color:#efe;font-weight:bold;">30</td><td>28</td><td>6</td><td>1</td><td>2</td><td>1</td><td>0</td><td>1</td><td>8</td><td>0</td><td>0</td><td>.233</td><td>.321</td><td>.555</td><td>2.72</td><td>3.28</td></tr>
+  <tr><td style="text-align:center;">5</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E4%B8%AD%E5%B3%B6%E3%80%80%E5%AE%8F%E4%B9%8B">中島　宏之</a></td><td>.278</td><td>8</td><td style="background-color:#efe;font-weight:bold;">19</td><td>18</td><td>5</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>5</td><td>0</td><td>1</td><td>.316</td><td>.278</td><td>.594</td><td>2.47</td><td>2.43</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">37</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E8%8B%A5%E6%9E%97%E3%80%80%E6%99%83%E5%BC%98">若林　晃弘</a></td><td>.125</td><td>21</td><td style="background-color:#efe;font-weight:bold;">18</td><td>16</td><td>2</td><td>0</td><td>0</td><td>1</td><td>2</td><td>0</td><td>5</td><td>0</td><td>0</td><td>.222</td><td>.125</td><td>.347</td><td>0.79</td><td>0.91</td></tr>
+  <tr><td style="text-align:center;">23</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%9D%BE%E7%94%B0%E3%80%80%E5%AE%A3%E6%B5%A9">松田　宣浩</a></td><td>.063</td><td>12</td><td style="background-color:#efe;font-weight:bold;">17</td><td>16</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>1</td><td>0</td><td>.063</td><td>.063</td><td>.125</td><td>-1.67</td><td>-1.43</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">12</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E8%90%A9%E5%B0%BE%E3%80%80%E5%8C%A1%E4%B9%9F">萩尾　匡也</a></td><td>.063</td><td>11</td><td style="background-color:#efe;font-weight:bold;">16</td><td>16</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>10</td><td>0</td><td>0</td><td>.063</td><td>.063</td><td>.125</td><td>-1.94</td><td>-1.67</td></tr>
+  <tr><td style="text-align:center;">0</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%A2%97%E7%94%B0%E3%80%80%E5%A4%A7%E8%BC%9D">増田　大輝</a></td><td>.300</td><td>33</td><td style="background-color:#efe;font-weight:bold;">13</td><td>10</td><td>3</td><td>0</td><td>1</td><td>4</td><td>1</td><td>0</td><td>3</td><td>2</td><td>0</td><td>.364</td><td>.400</td><td>.764</td><td>3.87</td><td>3.85</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">59</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%9D%BE%E5%8E%9F%E3%80%80%E8%81%96%E5%BC%A5">松原　聖弥</a></td><td>.000</td><td>21</td><td style="background-color:#efe;font-weight:bold;">13</td><td>12</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>4</td><td>0</td><td>0</td><td>.077</td><td>.000</td><td>.077</td><td>-2.09</td><td>-1.73</td></tr>
+  <tr><td style="text-align:center;">22</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B0%8F%E6%9E%97%E3%80%80%E8%AA%A0%E5%8F%B8">小林　誠司</a></td><td>.125</td><td>21</td><td style="background-color:#efe;font-weight:bold;">9</td><td>8</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>.125</td><td>.125</td><td>.250</td><td>-0.47</td><td>-0.30</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">67</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%B1%B1%E7%80%AC%E3%80%80%E6%85%8E%E4%B9%8B%E5%8A%A9">山瀬　慎之助</a></td><td>.143</td><td>5</td><td style="background-color:#efe;font-weight:bold;">7</td><td>7</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>0</td><td>.143</td><td>.143</td><td>.286</td><td>-0.49</td><td>-0.27</td></tr>
+  <tr><td style="text-align:center;">60</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E8%8F%8A%E7%94%B0%E3%80%80%E6%8B%A1%E5%92%8C">菊田　拡和</a></td><td>.000</td><td>6</td><td style="background-color:#efe;font-weight:bold;">6</td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>.167</td><td>.000</td><td>.167</td><td>-1.04</td><td>-0.59</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">00</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E6%B9%AF%E6%B5%85%E3%80%80%E5%A4%A7">湯浅　大</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+  <tr><td style="text-align:center;">36</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E7%9F%B3%E5%B7%9D%E3%80%80%E6%85%8E%E5%90%BE">石川　慎吾</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">61</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%A2%97%E7%94%B0%E3%80%80%E9%99%B8">増田　陸</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+  <tr><td style="text-align:center;">66</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E9%A6%99%E6%9C%88%E3%80%80%E4%B8%80%E4%B9%9F">香月　一也</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+  <tr style="background-color:#f4f4f4;"><td style="text-align:center;">94</td><td style="text-align:left;"><a href="https://baseball-data.com/player/g/%E5%96%9C%E5%A4%9A%E3%80%80%E9%9A%86%E4%BB%8B">喜多　隆介</a></td><td>-</td><td>-</td><td style="background-color:#efe;font-weight:bold;">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+  
+  </tbody>
+  <thead>
+  <tr>
+  <th>背<br>番<br>号</th><th style="width:130px">選手名</th><th>打<br>率</th><th>試<br>合</th><th>打<br>席<br>数</th><th>打<br>数</th><th>安<br>打</th><th>本<br>塁<br>打</th><th>打<br>点</th><th>盗<br>塁</th><th>四<br>球</th><th>死<br>球</th><th>三<br>振</th><th>犠<br>打</th><th>併<br>殺<br>打</th><th>出<br>塁<br>率</th><th>長<br>打<br>率</th><th>O<br>P<br>S</th><th>R<br>C<br>2<br>7</th><th>X<br>R<br>2<br>7</th>
+  </tr>
+  </thead>
+  </table>
+  
+  <div class="right">
+  <a href="#">▲ページの先頭へ</a>
+  </div>
+  
+  </div> <!-- main -->
+  
+  
