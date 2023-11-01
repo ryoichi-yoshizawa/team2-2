@@ -1,0 +1,1345 @@
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'MyFont';
+      src: url(./asset/KosugiMaru-Regular.ttf);
+    }
+    body {
+      font-family: 'MyFont';
+      /* background-color: #e2edff; */
+      background-color: transparent;
+      margin: 0px !important;
+      padding: 2px;
+      line-height: 1.3rem;
+    }
+
+    body * {
+      box-sizing: border-box;
+    }
+
+    .sub-title {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .no-spin::-webkit-inner-spin-button,
+    .no-spin::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        -moz-appearance:textfield;
+    }
+
+    .game-count,
+    .game-count-per-season {
+      width: 50px;
+    }
+
+    .custom-input {
+      border: 1px solid #999999;
+      border-radius: 5px;
+      padding: 3px 5px;
+    }
+
+    .custom-btn {
+      border: none;
+      height: 30px;
+      width: 80px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    .btn-ok {
+      background-color: #0000ff;
+      color: #ffffff;
+
+      padding: 10px;
+      font-size: 24px;
+      width: 100%;
+      height: 60px;
+    }
+    .btn-tweet {
+      background-color: #00acee;
+      color: #ffffff;
+
+      padding: 10px;
+      font-size: 24px;
+      width: 100%;
+      height: 60px;
+    }
+    .btn-ok:disabled,
+    .btn-tweet:disabled {
+      background-color: #cccccc;
+      color: #777777;
+    }
+    .btn-cancel {
+      background-color: #cccccc;
+      color: #555555;
+    }
+    /* .btn-execute {
+      padding: 10px;
+      font-size: 24px;
+      width: 180px;
+      height: 60px;
+    } */
+    .input-area {
+      display: table;
+      margin: 5px 5px;
+    }
+    .input-area * {
+      font-size: 18px;
+    }
+    .input-row {
+      display: table-row;
+    }
+    .input-label {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: right;
+      font-weight: bold;
+    }
+    .input-context {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .input-context input {
+      width: 80px;
+    }
+    .input-plain {
+      font-size: 12px;
+      padding: 0 5px;
+    }
+
+    .total-info-area {
+      background-color: #ffffff;
+      border: 3px solid #555555;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 5px;
+    }
+
+    .score-board {
+      table-layout: fixed;
+      background-color: #008d00;
+      color: #ffffff;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .score-board-header {
+      font-weight: bold;
+    }
+    .score-board td {
+      border: 1px solid #ffffff;
+      text-align: center;
+      width: 28px;
+    }
+    .score-board td.sum-score {
+      width: 38px;
+      font-weight: bold;
+    }
+
+    .ground-area {
+      position: relative;
+    }
+    .runner-1,
+    .runner-2,
+    .runner-3 {
+      position: absolute;
+      border-radius: 20px;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(45deg, #ff9900, #ffffff)
+    }
+    .runner-1 {
+      top: 70px;
+      left: 97px;
+    }
+    .runner-2 {
+      top: 40px;
+      left: 65px;
+    }
+    .runner-3 {
+      top: 70px;
+      left: 30px;
+    }
+
+    .out-area {
+      display: table;
+    }
+    .out {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .out:first-child {
+      width: 60px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .out-count {
+      display: inline-block;
+      border-radius: 20px;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(45deg, #999999, #dddddd);
+    }
+    .out-count-true {
+      background: linear-gradient(45deg, #ff0000, #ffcccc) !important;
+    }
+
+    .batting-result-area {
+      height: 200px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px;
+      border: 1px solid #cccccc;
+      background: #eeeeee;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .result-out {
+      color: #0000ff;
+    }
+    .result-four-ball {
+      color: #00b000;
+    }
+    .result-hit {
+      color: #ff0000;
+    }
+    .result-two-base {
+      color: #ff0000;
+    }
+    .result-three-base {
+      color: #ff0000;
+    }
+    .result-homerun {
+      color: #ff0000;
+    }
+    .result-error {
+      color: #555555;
+    }
+
+    .result-add-score {
+      font-weight: bold;
+    }
+
+    .table-score-detail {
+      width: 100%;
+    }
+    .table-score-detail td {
+      border: none;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .table-total-result {
+      width: 100%;
+    }
+
+    .total-result-title {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: left;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .total-result-season {
+      text-align: left;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .total-result-detail-title,
+    .total-result-detail-content {
+      font-size: 20px;
+    }
+    .total-result-detail-title {
+      text-align: left;
+      font-weight: bold;
+      /* padding-left: 20px;
+      width: 150px; */
+      width: 100px;
+      padding-left: 20px;
+    }
+    .total-result-detail-content {
+      text-align: left;
+    }
+
+    .total-result-detail-hit-title,
+    .total-result-detail-hit-content {
+      font-size: 16px;
+    }
+    .total-result-detail-hit-title {
+      text-align: left;
+      /* font-weight: bold; */
+      padding-left: 100px;
+      width: 160px;
+    }
+    .total-result-detail-hit-content {
+      text-align: left;
+    }
+    .total-result-padding {
+      height: 10px;
+    }
+  </style>
+</head>
+<body>
+<div style="width: 330px">
+  <div id="app">
+    <!-- 入力項目 -->
+    <div class="sub-title">
+      【打者成績の入力】
+    </div>
+    <div class="input-area">
+      <div style="height: 5px"></div>
+      <div class="input-row">
+        <div class="input-label">打率：</div>
+        <div class="input-context"><input v-model="hitRate" type="number" v-bind:disabled="gameStatus.gameNow" class="custom-input no-spin" /></div>
+      </div>
+      <div style="height: 5px"></div>
+      <div class="input-row">
+        <div class="input-label">出塁率：</div>
+        <div class="input-context"><input v-model="getRate" type="number" v-bind:disabled="gameStatus.gameNow" class="custom-input no-spin"/></div>
+      </div>
+      <div style="height: 5px"></div>
+      <div class="input-row">
+        <div class="input-label">OPS：</div>
+        <div class="input-context"><input v-model="ops" type="number" v-bind:disabled="gameStatus.gameNow" class="custom-input no-spin"/></div>
+      </div>
+      <div style="height: 5px"></div>
+    </div>
+    <!-- 試合設定 -->
+    <div class="sub-title">
+      【試合数の設定】
+    </div>
+    <div>
+      <div style="height: 5px"></div>
+      <div>
+        <div>
+          <input type="radio" name="gameCount" v-model="gameStatus.isMultiGame" v-bind:disabled="gameStatus.gameNow" value="0" />
+          <label>１試合行う。</label>
+        </div>
+        <div>
+          <input type="radio" name="gameCount" v-model="gameStatus.isMultiGame" v-bind:disabled="gameStatus.gameNow" value="1" />
+          <label>
+            一気に
+            <input type="number" class="custom-input no-spin game-count" v-model="gameStatus.gameCount" v-bind:disabled="gameStatus.gameNow || !Number(gameStatus.isMultiGame)" />
+            試合分行う。※高速実行
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- ボタン -->
+    <div style="margin: 10px 0;">
+      <button class="custom-btn btn-ok btn-execute" v-bind:disabled="gameStatus.gameNow" @click="clickStart">
+        <span v-if="gameStatus.gameNow">試合中…</span>
+        <span v-else>試合開始！</span>
+      </button>
+    </div>
+    <div style="height: 30px"></div>
+    <!-- スコアボード -->
+    <div>
+      <table class="score-board">
+        <thead class="score-board-header">
+          <tr>
+            <td colspan="10" style="text-align: right; font-size: 1.25em;">
+              <span v-if="gameStatus.gameNow && Number(gameStatus.isMultiGame)">しばらくお待ちください・・・</span>
+              <span v-else>{{ totalInfo.gameCount + (gameStatus.gameNow ? 1 : 0) }}試合目</span>
+            </td>
+          </tr>
+          <tr>
+            <td v-for="(header, idx) in gameStatus.scoreBoardHeader" :key="idx">
+              <span>{{ header }}</span>
+            </td>
+            <td>計</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td v-for="(score, idx) in gameStatus.scoreBoard" :key="idx">
+              <span v-if="gameStatus.gameset || gameStatus.inning > (idx + 1) || score > 0">{{ score }}</span>
+            </td>
+            <td class="sum-score">
+              {{ gameStatus.score }}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="10" style="text-align: left;">
+              <div>
+                <table class="table-score-detail">
+                  <tbody>
+                    <tr>
+                      <td colspan="4" style="text-align: center;">
+                        <div style="font-weight: bold;font-size: 1.5em;">
+                          <span>{{ gameStatus.hitCount + gameStatus.twoBaseCount + gameStatus.threeBaseCount + gameStatus.homerunCount }}安打</span>
+                          <span style="width: 20px; display: inline-block;"></span>
+                          <span >{{ gameStatus.fourballCount }}四球</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: right;">単打：</td>
+                      <td>{{ gameStatus.hitCount }}本</td>
+                      <td style="text-align: right;">３塁打：</td>
+                      <td>{{ gameStatus.threeBaseCount }}本</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: right;">２塁打：</td>
+                      <td>{{ gameStatus.twoBaseCount }}本</td>
+                      <td style="text-align: right;">本塁打：</td>
+                      <td>{{ gameStatus.homerunCount }}本</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 試合状況 -->
+    <div style="display: flex; margin: 20px 0">
+      <div style="width:170px">
+        <div class="ground-area">
+          <img src="images-5.jpeg" width="150" height="120">
+          <div :class="{ 'runner-1': gameStatus.runner1B }"></div>
+          <div :class="{ 'runner-2': gameStatus.runner2B }"></div>
+          <div :class="{ 'runner-3': gameStatus.runner3B }"></div>
+        </div>
+      </div>
+      <div style="flex: 1; display: table;">
+        <div style="display: table-row; width: 100%;">
+          <div style="display: table-cell; font-weight: bold; text-align: center; font-size: 1.3em;">
+            <span v-if="gameStatus.inning === 9 && gameStatus.gameset">ゲームセット</span>
+            <span v-else>{{ gameStatus.inning }}回</span>
+          </div>
+        </div>
+        <div style="height: 5px">
+        </div>
+        <div style="display: table-row; width:  100%;">
+          <div style="display: table-cell; text-align: center;">
+            <div class="out-area" style="width: 100%;">
+              <div class="out">
+                アウト
+              </div>
+              <div class="out">
+                <div class="out-count" style="margin-right: 5px;" :class="{ 'out-count-true': gameStatus.outCount >= 1 || gameStatus.gameset }">
+                </div>
+                <div class="out-count" style="margin-left: 5px;" :class="{ 'out-count-true': gameStatus.outCount >= 2 || gameStatus.gameset }">
+                </div>
+              </div>
+              <!-- <div class="out">
+                <div class="out-count" :class="{ 'out-count-true': gameStatus.outCount >= 2 || gameStatus.gameset }">
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div style="height: 5px">
+        </div>
+        <div style="display: table-row; width: 100%;">
+          <div style="display: table-cell; text-align: center; font-size: 1.3em;">
+            打席結果
+          </div>
+        </div>
+        <div style="height: 5px">
+        </div>
+        <div style="display: table-row; width: 100%;">
+          <div style="display: table-cell; text-align: center; vertical-align: middle; font-size: 1.3em; font-weight: bold; border: 3px solid #333; height: 36px; background-color: #00a708; color: #fff;">
+            {{ getNowResultText() }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 試合の進行速度-->
+    <div style="text-align: center;">
+      <div style="font-weight: bold">試合の進行速度</div>
+      <div>
+        遅
+        <input type="range" min="10" max="1000" step="10" v-model="gameStatus.speed" style="width: 150px" />
+        速
+      </div>
+    </div>
+    <!-- 打席結果 -->
+    <div>
+      <div ref="resultArea" class="batting-result-area">
+        <div ref="resultAreaInner">
+          <div v-for="(resultPerInning, idx) in gameStatus.resultList" :key="idx" >
+            <div style="font-weight: bold;" v-show="(idx + 1) <= gameStatus.inning">
+              {{ idx + 1 }}回の攻撃
+            </div>
+            <div v-for="(result, idx2) in resultPerInning" :key="idx2">
+              <span :class="getResultClass(result) + ' ' +  getAddScoreClass(result)">
+                {{ getResultText(result.result) }}
+                {{ (result.addScore > 0) ? ' ＋' + result.addScore + '点' : '' }}
+              </span>
+              <span style="margin-left: 10px;">
+                {{ getOutRunnerText(result) === 'チェンジ' && ((idx) + 1 === 9) ? 'ゲームセット' : getOutRunnerText(result) }}
+              </span>
+            </div>
+          </div>
+          <div style="height: 50px"></div>
+        </div>
+      </div>
+    </div>
+    <div style="height: 30px"></div>
+    <!-- 累計情報 -->
+    <div style="margin: 10px 0 0 ">
+      <div class="total-info-area">
+        <div>
+          <table style="width: 100%">
+            <tr>
+              <td style="font-weight: bold; font-size: 1.1em;">
+                {{ totalInfo.gameCount }}試合分のチーム成績
+              </td>
+              <td style="width: 80px">
+                <button class="custom-btn btn-cancel" v-bind:disabled="gameStatus.gameNow" @click="clickReset">リセット</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding: 10px">
+          <div class="total-result-title">
+            一試合平均
+          </div>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-title">得点</td>
+                <td class="total-result-detail-content">{{ round(totalInfo.averageScore, 3) }}点</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-title">安打数</td>
+                <td class="total-result-detail-content">{{ round((totalInfo.hitCount + totalInfo.twoBaseCount + totalInfo.threeBaseCount + totalInfo.homerunCount ) / (totalInfo.gameCount || 1), 3) }}安打</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-hit-title">単打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.hitCount / (totalInfo.gameCount || 1), 3) }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">２塁打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.twoBaseCount / (totalInfo.gameCount || 1), 3) }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">３塁打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.threeBaseCount / (totalInfo.gameCount || 1), 3) }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">本塁打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.homerunCount / (totalInfo.gameCount || 1), 3) }}本</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-title">四球数</td>
+                <td class="total-result-detail-content">{{ round(totalInfo.fourballCount / (totalInfo.gameCount || 1), 3) }}個</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="total-result-padding"></div>
+          <div class="total-result-title">
+            累計成績
+          </div>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-title">得点</td>
+                <td class="total-result-detail-content">{{ totalInfo.score }}点</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-title">安打数</td>
+                <td class="total-result-detail-content">{{ totalInfo.hitCount + totalInfo.twoBaseCount + totalInfo.threeBaseCount + totalInfo.homerunCount }}安打</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-hit-title">単打</td>
+                <td class="total-result-detail-hit-content">{{ totalInfo.hitCount }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">２塁打</td>
+                <td class="total-result-detail-hit-content">{{ totalInfo.twoBaseCount }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">３塁打</td>
+                <td class="total-result-detail-hit-content">{{ totalInfo.threeBaseCount }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">本塁打</td>
+                <td class="total-result-detail-hit-content">{{ totalInfo.homerunCount }}本</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-title">四球数</td>
+                <td class="total-result-detail-content">{{ totalInfo.fourballCount }}個</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="total-result-padding"></div>
+          <!-- シーズン成績 -->
+          <div class="total-result-title">
+            シーズン成績
+          </div>
+          <div class="total-result-season">
+            １シーズン
+            <input type="number" class="custom-input no-spin game-count-per-season" v-model="gameCountPerSeason" />
+            試合
+          </div>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-title">得点</td>
+                <td class="total-result-detail-content">{{ round(totalInfo.score * (gameCountPerSeason / (totalInfo.gameCount || 1)), 3) }}点</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-title">安打数</td>
+                <td class="total-result-detail-content">{{ round((totalInfo.hitCount + totalInfo.twoBaseCount + totalInfo.threeBaseCount + totalInfo.homerunCount) * (gameCountPerSeason / (totalInfo.gameCount || 1)), 3) }}安打</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-hit-title">単打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.hitCount * (gameCountPerSeason / (totalInfo.gameCount || 1)), 3) }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">２塁打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.twoBaseCount * (gameCountPerSeason / (totalInfo.gameCount || 1)), 3) }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">３塁打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.threeBaseCount * (gameCountPerSeason / (totalInfo.gameCount || 1)), 3) }}本</td>
+              </tr>
+              <tr>
+                <td class="total-result-detail-hit-title">本塁打</td>
+                <td class="total-result-detail-hit-content">{{ round(totalInfo.homerunCount * (gameCountPerSeason / (totalInfo.gameCount || 1)), 3) }}本</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table-total-result">
+            <tbody>
+              <tr>
+                <td class="total-result-detail-title">四球数</td>
+                <td class="total-result-detail-content">{{ round((totalInfo.fourballCount * (gameCountPerSeason / (totalInfo.gameCount || 1))), 3) }}個</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- ツイート -->
+    <div style="margin: 10px 0;">
+      <button class="custom-btn btn-tweet" v-bind:disabled="gameStatus.gameNow" @click="clickTweet"><i class="fab fa-twitter" style="color: #ffffff; margin-right: 15px;"></i>結果をつぶやく</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.5"></script>
+  <script>
+    const GAME_COUNT_PER_SEASON = 143
+
+    const MAX_GET_RATE = 0.9
+
+    const MAX_INNING = 9
+    const MAX_OUT_COUNT = 2
+    const MAX_SPEED = 10
+    const MIN_SPEED = 1000
+
+    const ERROR_LATE = 0.02
+    const AVE_BASE_CASE_HIT = 1.56
+    const TWO_BASE_RATE_CASE_HIT = 0.175
+    const THREE_BASE_RATE_CASE_HIT = 0.017
+    const HR_RATE_CASE_HIT = 0.117
+
+    const RESULT_OUT = 1
+    const RESULT_FOUR_BALL = 2
+    const RESULT_HIT = 3
+    const RESULT_TWO_BASE = 4
+    const RESULT_THREE_BASE = 5
+    const RESULT_HR = 6
+    const RESULT_ERROR = 7
+
+    const ROUND_UP = 1
+    const ROUND = 2
+    const ROUND_DOWN = 3
+
+    Vue.createApp({
+      data () {
+        return {
+          /**
+           * 入力項目
+           */
+          // 打率
+          hitRate: '0.250',
+          // 出塁率
+          getRate: '0.300',
+          // OPS
+          ops: '0.800',
+          /**
+           * 算出項目 
+           */
+          // 長打率
+          longHitRate: 0,
+          // 安打時の平均塁打数
+          aveBaseCaseHit: 0,
+
+          /**
+           * 選手の能力
+           * ※試合シミュレートで使用するパラメータ
+           */
+          playerParam: {
+            // 安打時の2塁打の確率
+            twoBaseRateCaseHit: 0,
+            // 安打時の3塁打の確率
+            threeBaseRateCaseHit: 0,
+            // 安打時のホームランの確率
+            hrRateCaseHit: 0
+          },
+
+          /**
+           * 累計試合結果 
+           */
+          totalInfo: {
+            // 累計試合数
+            gameCount: 0,
+            // 累計打席数
+            batsCount: 0,
+            // 1試合あたりの平均得点
+            averageScore: 0,
+            // 累計得点
+            score: 0,
+            // 累計単打数
+            hitCount: 0,
+            // 累計２塁打数
+            twoBaseCount: 0,
+            // 累計３塁打数
+            threeBaseCount: 0,
+            // 累計ホームラン数
+            homerunCount: 0,
+            // 累計四球数
+            fourballCount: 0,
+          },
+
+          gameCountPerSeason: GAME_COUNT_PER_SEASON,
+
+          /**
+           * 試合の状況
+           */
+          gameStatus: {
+            // 複数試合行うか
+            isMultiGame: '0',
+            // 試合を行う回数
+            gameCount: GAME_COUNT_PER_SEASON,
+            // 試合を進めるスピード
+            speed: 500,
+
+            // 試合中フラグ
+            gameNow: false,
+            // 試合終了フラグ
+            gameset: false,
+
+            // スコアボード
+            scoreBoard: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            // スコアボードヘッダ
+            scoreBoardHeader: ['一', '二', '三', '四', '五', '六', '七', '八', '九'],
+            // イニング毎の打席結果
+            resultList: [[],[],[],[],[],[],[],[],[]],
+            
+            // 打席数
+            batsCount: 0,
+            // 単打数
+            hitCount: 0,
+            // 四球数
+            fourballCount: 0,
+            // 2塁打数
+            twoBaseCount: 0,
+            // 3塁打数
+            threeBaseCount: 0,
+            // ホームラン数
+            homerunCount: 0,
+            // エラー数
+            errorCount: 0,
+
+            // 得点
+            score: 0,
+            // 現在のイニング
+            inning: 1,
+            // アウトカウント
+            outCount: 0,
+            // 1塁ランナーがいるか
+            runner1B: false,
+            // 2塁ランナーがいるか
+            runner2B: false,
+            // 3塁ランナーがいるか
+            runner3B: false
+          }
+        }
+      },
+
+      created: function () {},
+
+      mounted: function () {
+        this.hideWaiting()
+      },
+
+      methods: {
+        //
+        // イベント
+        //
+
+        /**
+         * 『試合開始』クリック
+         */
+        clickStart: async function () {
+          if (!this.validate()) {
+            return
+          }
+
+          this.gameStatus.gameNow = true
+          let gameCount = (Number(this.gameStatus.isMultiGame)) ? Number(this.gameStatus.gameCount) : 1
+
+          if (Number(this.gameStatus.isMultiGame)) {
+            this.showWaiting()
+          }
+
+          if (Number(this.gameStatus.isMultiGame)) {
+            await this.sleep(500)
+          }
+          for (var i = 1; i <= gameCount; i++){
+            this.prepare()
+            
+            await this.playball()
+
+            this.finish()
+          }
+          this.gameStatus.gameNow = false
+
+          this.hideWaiting()
+        },
+
+        //
+        // プライベートメソッド
+        //
+
+        showWaiting: function () {
+          if (window.document.getElementById("waitingScreen")) {
+            window.document.getElementById("waitingScreen").style.display ="block"
+          }
+        },
+
+        hideWaiting: function () {
+          if (window.document.getElementById("waitingScreen")) {
+            window.document.getElementById("waitingScreen").style.display ="none"
+          }
+        },
+
+        /**
+         * 試合開始時、入力項目をチェックします。
+         */
+        validate: function () {
+          let getRate = this.round(Number(this.getRate), 3)
+          let hitRate = this.round(Number(this.hitRate), 3)
+          let ops = this.round(Number(this.ops), 3)
+
+          // 入力チェック：出塁率
+          if (getRate < 0 ||  MAX_GET_RATE < getRate) {
+            alert('出塁率は、0～' + MAX_GET_RATE + 'の範囲で入力してください。')
+            return false
+          }
+
+          // 入力チェック：打率
+          if (hitRate < 0 || getRate < hitRate) {
+            alert('打率は、0～' + getRate + 'の範囲で入力してください。')
+            return false
+          }
+
+          // 入力チェック：OPS
+          let opsMin = this.round(hitRate + getRate, 3)
+          let opsMax = this.round((hitRate * 3) + getRate, 3)
+          if (ops < opsMin || opsMax < ops) {
+            alert('OPSは、' + opsMin + '～' + opsMax + 'の範囲で入力してください。')
+            return false
+          }
+
+          // 入力チェック：試合数
+          if (Number(this.gameStatus.isMultiGame)) {
+            if (Number(this.gameStatus.gameCount) > 300) {
+              alert('試合数は、300以下で入力してください。')
+              return false
+            }
+          }
+
+          // 入力チェックOK
+          return true
+        },
+
+        /**
+         * 試合状況の初期化を行います。
+         */
+        prepare: function () {
+          /** 選手能力の初期化 */
+          // 長打率 = OPS - 出塁率
+          this.longHitRate = Number(this.ops) - Number(this.getRate)
+          // 安打を打った時の塁打の期待値 = 長打率 / 打率
+          this.aveBaseCaseHit = this.longHitRate / this.hitRate
+          // 安打を打った時の２塁打、３塁打、HRが出る確率
+          this.playerParam.twoBaseRateCaseHit = (this.aveBaseCaseHit / AVE_BASE_CASE_HIT) * TWO_BASE_RATE_CASE_HIT
+          this.playerParam.threeBaseRateCaseHit = (this.aveBaseCaseHit / AVE_BASE_CASE_HIT) * THREE_BASE_RATE_CASE_HIT
+          this.playerParam.hrRateCaseHit = (this.aveBaseCaseHit / AVE_BASE_CASE_HIT) * HR_RATE_CASE_HIT
+
+          /** 試合状況の初期化 */
+          this.gameStatus.resultList = [[],[],[],[],[],[],[],[],[]]
+          this.gameStatus.score = 0
+          this.gameStatus.scoreBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+          this.gameStatus.batsCount = 0
+          this.gameStatus.hitCount = 0
+          this.gameStatus.fourballCount = 0
+          this.gameStatus.twoBaseCount = 0
+          this.gameStatus.threeBaseCount = 0
+          this.gameStatus.homerunCount = 0
+          this.gameStatus.errorCount = 0
+          this.gameStatus.gameset = false
+          this.gameStatus.inning = 1
+          this.gameStatus.outCount = 0
+          this.gameStatus.runner1B = false
+          this.gameStatus.runner2B = false
+          this.gameStatus.runner3B = false
+        },
+
+        /**
+         * 試合を開始します。 
+         */
+        playball: async function () {
+          let status = this.gameStatus
+
+          while (!status.gameset) {
+            let nowInning = status.inning
+            let preScore = status.score
+
+            // 勝負！
+            let result = this.match()
+
+            // ランナーの進塁
+            this.goRunner(result)
+            
+            // 打席結果の保存
+            status.resultList[nowInning - 1].push({
+              result: result,
+              addScore: status.score - preScore,
+              outCount: status.outCount,
+              runner1B: status.runner1B,
+              runner2B: status.runner2B,
+              runner3B: status.runner3B
+            })
+            this.$refs.resultArea.scrollTop = this.$refs.resultArea.scrollHeight + 100
+
+            // アウトの処理
+            if (result === RESULT_OUT) {
+              if (status.outCount > MAX_OUT_COUNT) {
+                status.outCount = 0
+                status.inning = status.inning + 1
+
+                // 試合終了判定
+                if (status.inning > MAX_INNING) {
+                  status.inning = MAX_INNING
+                  status.gameset = true
+                  this.$refs.resultArea.scrollTop = this.$refs.resultArea.scrollHeight + 100
+                  break
+                }
+
+                // ランナー初期化
+                status.runner1B = false
+                status.runner2B = false
+                status.runner3B = false
+              }
+
+              this.$refs.resultArea.scrollTop = this.$refs.resultArea.scrollHeight + 100
+            }
+            
+            if (!Number(status.isMultiGame)) {
+              await this.sleep((MIN_SPEED - status.speed + MAX_SPEED))
+              this.$refs.resultArea.scrollTop = this.$refs.resultArea.scrollHeight + 100
+            }
+          }
+        },
+
+        match: function () {
+          let status = this.gameStatus
+
+          status.batsCount++
+
+          // 安打or四球orアウト
+          let rand1 = Math.random(1)
+          if (rand1 <= this.hitRate) {
+            // スルー
+          } else if (rand1 <= this.getRate) {
+            status.fourballCount++
+            return RESULT_FOUR_BALL
+          } else if (rand1 <= (Number(this.getRate) + Number(ERROR_LATE))) {
+            status.errorCount++
+            return RESULT_ERROR
+          } else {
+            status.outCount++
+            return RESULT_OUT
+          }
+
+          // シングルor2Bor3BorHR
+          let rand2 = Math.random(1)
+          if (rand2 <= this.playerParam.hrRateCaseHit) {
+            status.homerunCount++
+            return RESULT_HR
+          } else if (rand2 <= (this.playerParam.hrRateCaseHit + this.playerParam.threeBaseRateCaseHit)) {
+            status.threeBaseCount++
+            return RESULT_THREE_BASE
+          } else if  (rand2 <= (this.playerParam.hrRateCaseHit + this.playerParam.threeBaseRateCaseHit + this.playerParam.twoBaseRateCaseHit)) {
+            status.twoBaseCount++
+            return RESULT_TWO_BASE
+          } else {
+            status.hitCount++
+            return RESULT_HIT
+          }
+        },
+      
+        goRunner: function (result) {
+          let status = this.gameStatus
+
+          // 打席結果：四球
+          if (result === RESULT_FOUR_BALL) {
+            if (status.runner1B) {
+              // 1塁走者が存在する
+              if (status.runner2B) {
+                // 2塁走者が存在する
+                if (status.runner3B) {
+                  // 押し出し +1点
+                  this.incrementScore()
+                } else {
+                  status.runner3B = true
+                }
+              } else {
+                status.runner2B = true
+              }
+            } else {
+              status.runner1B = true
+            }
+          }
+          
+          // 打席結果：安打orエラー
+          if (result === RESULT_HIT || result === RESULT_ERROR) {
+            if (status.runner3B) {
+              // 3塁→ホームイン +1点
+              status.runner3B = false
+              this.incrementScore()
+            }
+            if (status.runner2B) {
+              // 2塁→3塁
+              status.runner2B = false
+              status.runner3B = true
+            }
+            if (status.runner1B) {
+              // 1塁→2塁
+              status.runner1B = false
+              status.runner2B = true
+            }
+
+            // バッターランナー→1塁
+            status.runner1B = true
+          }
+
+          // 打席結果：2塁打
+          if (result === RESULT_TWO_BASE) {
+            if (status.runner3B) {
+              // 3塁→ホームイン +1点
+              status.runner3B = false
+              this.incrementScore()
+            }
+            if (status.runner2B) {
+              // 2塁→ホームイン +1点
+              status.runner2B = false
+              this.incrementScore()
+            }
+            if (status.runner1B) {
+              // 1塁→3塁
+              status.runner1B = false
+              status.runner3B = true
+            }
+
+            // バッターランナー→2塁
+            status.runner2B = true
+          }
+
+          // 打席結果：3塁打
+          if (result === RESULT_THREE_BASE) {
+            if (status.runner3B) {
+              // 3塁→ホームイン +1点
+              status.runner3B = false
+              this.incrementScore()
+            }
+            if (status.runner2B) {
+              // 2塁→ホームイン +1点
+              status.runner2B = false
+              this.incrementScore()
+            }
+            if (status.runner1B) {
+              // 1塁→ホームイン +1点
+              status.runner1B = false
+              this.incrementScore()
+            }
+
+            // バッターランナー→3塁
+            status.runner3B = true
+          }
+
+          // 打席結果：ホームラン
+          if (result === RESULT_HR) {
+            if (status.runner3B) {
+              // 3塁→ホームイン +1点
+              status.runner3B = false
+              this.incrementScore()
+            }
+            if (status.runner2B) {
+              // 2塁→ホームイン +1点
+              status.runner2B = false
+              this.incrementScore()
+            }
+            if (status.runner1B) {
+              // 1塁→ホームイン +1点
+              status.runner1B = false
+              this.incrementScore()
+            }
+
+            // バッターランナー→ホームイン
+            this.incrementScore()
+          }
+        },
+
+        incrementScore: function () {
+          let status = this.gameStatus
+          let idx = status.inning - 1
+
+          status.score = status.score + 1
+          status.scoreBoard[idx] = status.scoreBoard[idx] + 1
+        },
+
+        /**
+         * フォーマット変更メソッド
+         */
+
+        getResultText: function (result) {
+          switch (result) {
+            case RESULT_OUT:
+              return 'アウト'
+            case RESULT_FOUR_BALL:
+              return '四球'
+            case RESULT_HIT:
+              return 'ヒット'
+            case RESULT_TWO_BASE:
+              return '２塁打'
+            case RESULT_THREE_BASE:
+              return '３塁打'
+            case RESULT_HR:
+              return 'ホームラン'
+            case RESULT_ERROR:
+              return 'エラー'
+            default:
+              return ''
+          }
+        },
+
+        getOutRunnerText: function (result) {
+          let outCount = result.outCount
+          let runner1B = result.runner1B
+          let runner2B = result.runner2B
+          let runner3B = result.runner3B
+
+          let outText = ''
+          let runnerText = ''
+
+          switch (outCount) {
+            case 0:
+              outText = '無死'
+              break
+            case 1:
+              outText = '一死'
+              break
+            case 2:
+              outText = '二死'
+              break
+            case 3:
+              return 'チェンジ'
+          }
+          
+          if (runner1B && runner2B && runner3B) {
+            runnerText = '満塁'
+          } else if (!runner1B && !runner2B && !runner3B) {
+            runnerText = 'ランナーなし'
+          } else {
+            if (runner1B) {
+              runnerText += '一'
+            }
+            if (runner2B) {
+              runnerText += '二'
+            }
+            if (runner3B) {
+              runnerText += '三'
+            }
+            runnerText += '塁'
+          }
+
+          return outText + runnerText
+        },
+
+        getResultClass: function (result) {
+          switch (result.result) {
+            case RESULT_OUT:
+              return 'result-out'
+            case RESULT_FOUR_BALL:
+              return 'result-four-ball'
+            case RESULT_HIT:
+              return 'result-hit'
+            case RESULT_TWO_BASE:
+              return 'result-two-base'
+            case RESULT_THREE_BASE:
+              return 'result-three-base'
+            case RESULT_HR:
+              return 'result-homerun'
+              case RESULT_ERROR:
+              return 'result-error'
+            default:
+              return ''
+          }
+        },
+
+        getNowResultText: function () {
+          let resultNowInningList = this.gameStatus.resultList[this.gameStatus.inning - 1]
+
+          if (resultNowInningList.length === 0) {
+            return ''
+          }
+
+          return this.getResultText(resultNowInningList[resultNowInningList.length - 1].result)
+        },
+
+        getAddScoreClass: function (result) {
+          if (result.addScore > 0) {
+            return 'result-add-score'
+          } else {
+            return ''
+          }
+        },
+
+        sleep: function (ms) { 
+          return new Promise((resolve) => setTimeout(resolve, ms))
+        },
+      
+        finish: function () {
+          this.totalInfo.gameCount++
+          this.totalInfo.averageScore = (this.totalInfo.averageScore * (this.totalInfo.gameCount - 1) + this.gameStatus.score) / this.totalInfo.gameCount
+          this.totalInfo.score = this.totalInfo.score + this.gameStatus.score
+
+          this.totalInfo.batsCount = this.totalInfo.batsCount + this.gameStatus.batsCount
+          this.totalInfo.hitCount = this.totalInfo.hitCount + this.gameStatus.hitCount
+          this.totalInfo.twoBaseCount = this.totalInfo.twoBaseCount + this.gameStatus.twoBaseCount
+          this.totalInfo.threeBaseCount = this.totalInfo.threeBaseCount + this.gameStatus.threeBaseCount
+          this.totalInfo.homerunCount = this.totalInfo.homerunCount + this.gameStatus.homerunCount
+          this.totalInfo.fourballCount = this.totalInfo.fourballCount + this.gameStatus.fourballCount
+        },
+
+        clickReset: function () {
+          this.reset()
+        },
+
+        reset: function () {
+          this.totalInfo.gameCount = 0
+          this.totalInfo.batsCount = 0
+          this.totalInfo.averageScore = 0
+          this.totalInfo.score = 0
+          this.totalInfo.hitCount = 0
+          this.totalInfo.twoBaseCount = 0
+          this.totalInfo.threeBaseCount = 0
+          this.totalInfo.homerunCount = 0
+          this.totalInfo.fourballCount = 0
+
+          this.gameStatus.gameNow = false
+          this.gameStatus.gameset = false
+          this.gameStatus.scoreBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+          this.gameStatus.resultList = [[],[],[],[],[],[],[],[],[]]
+          this.gameStatus.hitCount = 0
+          this.gameStatus.fourballCount = 0
+          this.gameStatus.twoBaseCount = 0
+          this.gameStatus.threeBaseCount = 0
+          this.gameStatus.homerunCount = 0
+          this.gameStatus.errorCount = 0
+          this.gameStatus.score = 0
+          this.gameStatus.inning = 1
+          this.gameStatus.runner1B = false
+          this.gameStatus.runner2B = false
+          this.gameStatus.runner3B = false
+        },
+      
+        /**
+         * 計算 
+         */
+        // 丸め処理。
+        round: function (val, decDigit, kbn) {
+          let pow = Math.pow(10, decDigit)
+          let valPow = val * pow
+
+          let valRet = val
+          switch (kbn) {
+            case ROUND_UP:
+              valRet = Math.ceil(valPow)
+              break
+
+            case ROUND_DOWN:
+              valRet = Math.floor(valPow)
+              break
+
+            default:
+              valPow = Math.round(valPow)
+              break
+          }
+
+          return valPow / pow
+        },
+
+        clickTweet: function () {
+          let url = 'https://kyuusyuugurashi.com/?p=800'
+          let text = `${this.totalInfo.gameCount}試合シミュレートした結果、打率【${this.hitRate}】出塁率【${this.getRate}】OPS【${this.ops}】の打者だけで打線を組んだら、1試合あたりの平均得点は『${this.round(this.totalInfo.averageScore, 3) }』点。 ${url}`
+          window.open(`https://twitter.com/intent/tweet?text=${text}`)
+        }
+      }
+    }).mount('#app')
+  </script>
+</div>
+<div id="waitingScreen" style="position: fixed; top: 0; left: 0; height: 100%; width: 100%; background-color: #555555f0; display: none;">
+  <div style="
+    display: table;
+    height: 100%;
+    width: 100%;
+  ">
+    <div style="
+      display:table-cell;
+      vertical-align: middle;
+      text-align: center;
+      color: #ffffff;
+    ">高速実行中・・・</div>
+  </div>
+</div>
+</body>
+</html>
