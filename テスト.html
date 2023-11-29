@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>野球対戦ゲーム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #gameScreen {
+            border: 1px solid #000;
+            width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>野球対戦ゲーム</h1>
+
+<div id="result"></div>
+<button onclick="simulateGame()">対戦シミュレーション</button>
+
+<div id="gameScreen"></div>
+
+<script>
+    class Player {
+        constructor(name, position, battingAverage, games, plateAppearances, atBats, hits, doubles, homeRuns, RBIs, steals, walks, hitByPitch, strikeouts, sacrifices, doublePlays, onBasePercentage, sluggingPercentage) {
+            this.name = name;
+            this.position = position;
+            this.battingAverage = battingAverage;
+            this.games = games;
+            this.plateAppearances = plateAppearances;
+            this.atBats = atBats;
+            this.hits = hits;
+            this.doubles = doubles;
+            this.homeRuns = homeRuns;
+            this.RBIs = RBIs;
+            this.steals = steals;
+            this.walks = walks;
+            this.hitByPitch = hitByPitch;
+            this.strikeouts = strikeouts;
+            this.sacrifices = sacrifices;
+            this.doublePlays = doublePlays;
+            this.onBasePercentage = onBasePercentage;
+            this.sluggingPercentage = sluggingPercentage;
+        }
+
+        simulateAtBat(opponentPitcher) {
+            var randomOutcome = Math.random();
+            var adjustedBattingAverage = this.battingAverage - opponentPitcher.hitsPer9 / 900;  // 900は通常のイニング数（9イニング * 100）
+            var battingResult;
+
+            if (randomOutcome <= adjustedBattingAverage) {
+                // ヒット
+                battingResult = "ヒット";
+                var hitType = Math.random();
+                if (hitType <= 0.2) {
+                    // 二塁打
+                    battingResult = "二塁打";
+                    this.doubles++;
+                } else if (hitType <= 0.1) {
+                    // 本塁打
+                    battingResult = "本塁打";
+                    this.homeRuns++;
+                }
+            } else if (randomOutcome <= adjustedBattingAverage + 0.1) {
+                // 死球
+                battingResult = "死球";
+            } else if (randomOutcome <= adjustedBattingAverage + 0.15) {
+                // 四球
+                battingResult = "四球";
+                this.walks++;
+            } else {
+                // アウト
+                battingResult = "アウト";
+            }
+
+            return battingResult;
+        }
+
+        simulateSteal() {
+            var stealOutcome = Math.random();
+            if (stealOutcome <= this.steals / 100) {
+                return true;  // 盗塁成功
+            } else {
+                return false;  // 盗塁失敗
+            }
+        }
+    }
+
+    class Pitcher {
+        constructor(name, ERA, games, gamesStarted, wins, losses, saves, saveOpportunities, inningsPitched, hitsAllowed, runsAllowed, earnedRuns, homeRunsAllowed, walks, hitBatters, strikeouts, wildPitches, battersFaced, WHIP, hitsPer9, walksPer9, strikeoutsPer9) {
+            this.name = name;
+            this.ERA = ERA;
+            this.games = games;
+            this.gamesStarted = gamesStarted;
+            this.wins = wins;
+            this.losses = losses;
+            this.saves = saves;
+            this.saveOpportunities = saveOpportunities;
+            this.inningsPitched = inningsPitched;
+            this.hitsAllowed = hitsAllowed;
+            this.runsAllowed = runsAllowed;
+            this.earnedRuns = earnedRuns;
+            this.homeRunsAllowed = homeRunsAllowed;
+            this.walks = walks;
+            this.hitBatters = hitBatters;
+            this.strikeouts = strikeouts;
+            this.wildPitches = wildPitches;
+            this.battersFaced = battersFaced;
+            this.WHIP = WHIP;
+            this.hitsPer9 = hitsPer9;
+            this.walksPer9 = walksPer9;
+            this.strikeoutsPer9 = strikeoutsPer9;
+        }
+    }
+
+    var players = [
+        new Player('関根', '外野手', 0.261, 140, 532, 482, 126, 20, 31, 11, 29, 4, 53, 16, 5, 0.308, 0.334),
+        new Player('宮崎', '三塁手', 0.326, 124, 461, 408, 133, 71, 71, 1, 41, 8, 43, 0, 14, 0.395, 0.539),
+        new Player('牧', '二塁手', 0.293, 143, 605, 559, 164, 29, 103, 2, 33, 7, 85, 0, 17, 0.337, 0.53),
+        new Player('ソト', '一塁手', 0.234, 109, 399, 354, 83, 14, 50, 0, 39, 4, 99, 0, 11, 0.316, 0.415),
+        new Player('佐野', '外野手', 0.264, 141, 613, 560, 148, 13, 65, 0, 46, 4, 77, 0, 9, 0.323, 0.388),
+        new Player('桑原', '外野手', 0.252, 132, 479, 429, 108, 7, 35, 3, 23, 10, 54, 11, 11, 0.301, 0.373),
+        new Player('大和', '遊撃手', 0.235, 88, 230, 213, 50, 0, 18, 1, 14, 0, 23, 3, 7, 0.282, 0.254),
+        new Player('山本', '捕手', 0.277, 71, 200, 173, 48, 3, 16, 0, 18, 1, 26, 7, 3, 0.347, 0.382),
+        new Player('京田', '遊撃手', 0.227, 93, 287, 251, 57, 1, 9, 3, 25, 2, 33, 9, 6, 0.302, 0.255),
+    ];
+
+    var pitcher = new Pitcher('戸郷 翔征', 2.38, 24, 24, 4, 2, 17, 12, 5, 0, 0, 0, 170, 141, 14, 141, 7.46, 39, 3, 2, 0, 49, 45, 0.225, 3.62, 1.06);
+
+    function simulateGame() {
+        var resultElement = document.getElementById('result');
+        var gameScreenElement = document.getElementById('gameScreen');
+        resultElement.innerHTML = "";  // 結果表示エリアをクリア
+        gameScreenElement.innerHTML = "";  // ゲーム画面をクリア
+
+        var player1Score = 0;
+        var player2Score = 0;
+
+        for (var inning = 1; inning <= 9; inning++) {  // 9イニングまで続く試合
+            resultElement.innerHTML += "<p>Inning " + inning + "</p>";
+            gameScreenElement.innerHTML += "<p>Inning " + inning + "</p>";
+
+            for (var i = 0; i < 9; i++) {  // 9人の打順
+                resultElement.innerHTML += "<p>打者: " + players[i].name + "</p>";
+                gameScreenElement.innerHTML += "<p>打者: " + players[i].name + "</p>";
+
+                var outcome = players[i].simulateAtBat(pitcher);
+
+                if (outcome === "ヒット") {
+                    resultElement.innerHTML += "  ヒット！<br>";
+                    gameScreenElement.innerHTML += "  ヒット！<br>";
+                    if (i < 4) {
+                        player1Score++;
+                    } else {
+                        player2Score++;
+                    }
+                } else if (outcome === "二塁打") {
+                    resultElement.innerHTML += "  二塁打！<br>";
+                    gameScreenElement.innerHTML += "  二塁打！<br>";
+                } else if (outcome === "本塁打") {
+                    resultElement.innerHTML += "  本塁打！<br>";
+                    gameScreenElement.innerHTML += "  本塁打！<br>";
+                } else if (outcome === "死球") {
+                    resultElement.innerHTML += "  死球で出塁<br>";
+                    gameScreenElement.innerHTML += "  死球で出塁<br>";
+                } else if (outcome === "四球") {
+                    resultElement.innerHTML += "  四球！<br>";
+                    gameScreenElement.innerHTML += "  四球！<br>";
+                } else {
+                    resultElement.innerHTML += "  アウト！<br>";
+                    gameScreenElement.innerHTML += "  アウト！<br>";
+                }
+
+                // バント
+                var buntOutcome = Math.random();
+                if (buntOutcome <= 0.1) {
+                    resultElement.innerHTML += "  バント成功！<br>";
+                    gameScreenElement.innerHTML += "  バント成功！<br>";
+                }
+
+                // 盗塁
+                var stealAttempt = players[i].simulateSteal();
+                if (stealAttempt) {
+                    resultElement.innerHTML += "  盗塁成功！<br>";
+                    gameScreenElement.innerHTML += "  盗塁成功！<br>";
+                }
+            }
+
+            resultElement.innerHTML += "<p>イニング終了。得点: Player1 " + player1Score + ", Player2 " + player2Score + "</p>";
+            gameScreenElement.innerHTML += "<p>イニング終了。得点: Player1 " + player1Score + ", Player2 " + player2Score + "</p>";
+        }
+
+        resultElement.innerHTML += "<p>試合終了。最終得点: Player1 " + player1Score + ", Player2 " + player2Score + "</p>";
+        gameScreenElement.innerHTML += "<p>試合終了。最終得点: Player1 " + player1Score + ", Player2 " + player2Score + "</p>";
+    }
+</script>
+
+</body>
+</html>
