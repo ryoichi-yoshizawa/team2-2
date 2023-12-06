@@ -1,0 +1,41 @@
+/* chatgpt/static/css/style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#chat-box {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#chat-history {
+    margin-bottom: 10px;
+}
+
+#user-input {
+    display: flex;
+}
+
+#user-message {
+    flex-grow: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#upload-btn {
+    margin-left: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
