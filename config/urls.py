@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import RedirectView
+from chatgpt.views import ChatGPTView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('chatgpt/', include('chatgpt.urls')),  # chatgptアプリへのルーティングを追加
-    path('favicon.ico', RedirectView.as_view(url='/static/images/favicon.ico')),
+    path('chatgpt/', include('chatgpt.urls')),
 ]
