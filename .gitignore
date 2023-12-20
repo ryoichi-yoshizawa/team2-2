@@ -9,7 +9,7 @@ media/
 staticfiles/
 
 .env.local
-.env
+*.env
 
 venv/
 env/
