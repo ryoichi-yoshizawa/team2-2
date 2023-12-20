@@ -10,6 +10,7 @@ staticfiles/
 
 .env.local
 *.env
+.env
 
 venv/
 env/
@@ -21,3 +22,4 @@ vendor/
 *.log
 *.swp
 .DS_Store
+".env" 
