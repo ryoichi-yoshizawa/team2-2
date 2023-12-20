@@ -131,6 +131,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # .envファイルから環境変数をロードする
+load_dotenv()
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+SECRET_KEY = 'your_secret_key_here'
+
+DEBUG = True
 
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')

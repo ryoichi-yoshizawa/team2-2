@@ -1,64 +1,38 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with ChatGPT</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>ChatGPT Chat Box</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 <body>
-    <div id="chat-box">
-        <div id="chat-history"></div>
-        <div id="user-input">
-            <input type="text" id="user-message" placeholder="Type your message...">
-            <input type="file" id="upload-btn" onchange="uploadFile()">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+    <form id="chat-form">
+        {% csrf_token %}
+        <input type="text" id="id_message" name="message" required>
+        <button type="submit">Send</button>
+    </form>
+    <div id="chat-log">
+        <!-- チャットログがここに表示されます -->
     </div>
 
     <script>
-        function sendMessage() {
-            var userMessage = document.getElementById('user-message').value;
-            document.getElementById('chat-history').innerHTML += '<p>User: ' + userMessage + '</p>';
+        $('#chat-form').submit(function(event) {
+            event.preventDefault();
+            var userMessage = $('#id_message').val();
+            $('#chat-log').append('<div>User: ' + userMessage + '</div>');
 
-            // OpenAI APIにユーザーのメッセージを送信
-            fetch('/chatgpt/api/chat/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+            $.ajax({
+                type: 'POST',
+                url: '',  // 空欄にしておくと、現在のURLにデータが送信されます
+                data: {
+                    'message': userMessage,
+                    'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
                 },
-                body: JSON.stringify({
-                    user_message: userMessage,
-                }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                var chatHistory = document.getElementById('chat-history');
-                chatHistory.innerHTML += '<p>ChatGPT: ' + data.gpt_response + '</p>';
+                success: function(response) {
+                    $('#chat-log').append('<div>ChatGPT: ' + response.response + '</div>');
+                    $('#id_message').val('');  // テキストボックスをクリア
+                }
             });
-        }
-
-        function uploadFile() {
-            var fileInput = document.getElementById('upload-btn');
-            var file = fileInput.files[0];
-            var userMessage = document.getElementById('user-message');
-
-            // ファイルをアップロード
-            var formData = new FormData();
-            formData.append('csv_file', file);
-
-            fetch('/chatgpt/api/chat/', {
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                var chatHistory = document.getElementById('chat-history');
-                chatHistory.innerHTML += '<p>ChatGPT: ' + data.gpt_response + '</p>';
-            });
-        }
+        });
     </script>
 </body>
 </html>

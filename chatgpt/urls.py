@@ -1,7 +1,8 @@
+# chatgpt/urls.py
+
 from django.urls import path
-from .views import chat, chat_api
+from .views import ChatGPTView
 
 urlpatterns = [
-    path('', chat, name='chat'),
-    path('api/chat/', chat_api, name='chat_api'),
+    path('', ChatGPTView.as_view(), name='chatgpt_chat'),
 ]
