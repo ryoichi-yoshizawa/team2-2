@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baseball Game Simulation</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  #gameInfo { margin-bottom: 20px; }
+</style>
+<script>
+// 選手情報
+const teams = {
+  "DeNA": {
+    "lineup": [
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+      {"name": "桑原", "position": "中堅手", "batting": "right", "average": 0.252},
+    ],
+    "pitcher": {"name": "東 克樹", "hand": "left", "era": 1.98}
+  },
+  "Giants": {
+    "lineup": [
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      {"name": "吉川 尚輝", "position": "二塁手", "batting": "left", "average": 0.256},
+      
+    ],
+    "pitcher": {"name": "山﨑 伊織", "hand": "right", "era": 2.72}
+  }
+};
+
+// ゲームの状態を保持する変数
+let currentInning = 1;
+let outs = 0;
+let score = { "DeNA": 0, "Giants": 0 };
+
+// シミュレーションの開始
+function simulateGame() {
+  const gameLog = document.getElementById('gameLog');
+  gameLog.innerHTML = ''; // ログをクリア
+
+  while (currentInning <= 9) {
+    // 各チームの攻撃
+    for (let teamName in teams) {
+      let team = teams[teamName];
+      outs = 0; // アウトをリセット
+      let lineupIndex = 0; // 打順
+
+      while (outs < 3) {
+        let batter = team.lineup[lineupIndex % team.lineup.length];
+        simulateAtBat(batter, teams[teamName === "DeNA" ? "Giants" : "DeNA"].pitcher);
+        lineupIndex++;
+      }
+    }
+
+    // イニングの更新
+    currentInning++;
+  }
+
+  // ゲーム結果の表示
+  announceWinner();
+}
+
+// アットバットのシミュレーション
+function simulateAtBat(batter, pitcher) {
+  let hitChance = batter.average - pitcher.era / 10;
+  if (Math.random() < hitChance) {
+    // ヒットの可能性
+    if (Math.random() < 0.1) {
+      // ホームラン
+      scoreDeNA++;
+      logAtBat(batter.name, "ホームラン！");
+    } else {
+      // 単打
+      logAtBat(batter.name, "ヒット！");
+    }
+  } else {
+    // アウト
+    outs++;
+    logAtBat(batter.name, "アウト");
+  }
+}
+
+// 結果をロギング
+function logAtBat(batterName, result) {
+  const gameLog = document.getElementById('gameLog');
+  let logEntry = document.createElement('div');
+  logEntry.textContent = `【${currentInning}回】${batterName}: ${result}`;
+  gameLog.appendChild(logEntry);
+}
+
+// 勝者発表
+function announceWinner() {
+  const resultMessage = score["DeNA"] > score["Giants"]
+    ? `DeNAの勝利！ スコア: ${score["DeNA"]} - ${score["Giants"]}`
+    : score["Giants"] > score["DeNA"]
+      ? `巨人の勝利！ スコア: ${score["Giants"]} - ${score["DeNA"]}`
+      : "引き分け！";
+
+  const gameLog = document.getElementById('gameLog');
+  let resultEntry = document.createElement('div');
+  resultEntry.style.fontWeight = 'bold';
+  resultEntry.textContent = resultMessage;
+  gameLog.appendChild(resultEntry);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  simulateGame();
+});
+</script>
+</head>
+<body>
+
+<h1>Baseball Game Simulation</h1>
+<div id="gameInfo">
+    <div id="inning">イニング: <span id="inningNumber">1</span></div>
+    <div id="score">
+        <p>DeNA: <span id="scoreDeNA">0</span></p>
+        <p>巨人: <span id="scoreGiants">0</span></p>
+    </div>
+</div>
+
+<div id="gameLog"></div>
+
+</body>
+</html>
