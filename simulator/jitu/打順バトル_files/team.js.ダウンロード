@@ -1,0 +1,80 @@
+//========================
+// チームクラス
+//========================
+function Team(){
+	
+	// プロパティ
+	this.flg_player = false;	// プレイヤーチームかどうか
+	this.team_name = "";		// チーム名
+	this.members = [];			// 選手リスト
+}
+
+//-----------
+// メソッド
+//-----------
+// 選手追加
+Team.prototype.addMember = function(inMember){
+	this.members.push(inMember);
+}
+
+// 選手除名
+Team.prototype.deleteMember = function(inNum){
+	if(this.members[inNum]){
+		this.members.splice(inNum, 1);
+	}
+}
+
+// 選手を強い順に並べる
+Team.prototype.sortMember = function(){
+	this.members.sort(function(a,b){
+		var asum = a["avg"] + a["risp"];
+		var bsum = b["avg"] + b["risp"];
+		if(asum < bsum)return 1;
+		if(asum > bsum)return -1;
+		return 0;
+	});
+}
+
+// オブジェクトからプロパティを受け取る
+Team.prototype.copyPropertiesFromObject = function(inObject){
+	this.flg_player		= inObject.flg_player;
+	this.team_name		= inObject.team_name;
+	
+	// メンバーも同様にクラスコピー
+	this.members = [];
+	for(var i=0; i<inObject.members.length; i++){
+		var copyMember = new Member();
+		copyMember.copyPropertiesFromObject(inObject.members[i]);
+		this.members.push(copyMember);
+	}
+}
+
+// 選手の成績を初期化
+Team.prototype.initializeMembersScore = function(){
+	for(var i=0; i<this.members.length; i++){
+		this.members[i].initializeScore();
+	}
+}
+
+//-------------------------
+// チームのディープコピー
+//-------------------------
+Team.prototype.deepCopy = function(){
+	
+	// 返却するコピーしたチーム
+	var rtnTeam = new Team();
+	
+	// チーム名
+	rtnTeam.team_name = this.team_name;
+	
+	// 選手の情報をコピーしてチームに追加
+	for(var i=0; i<this.members.length; i++){
+		var copyMember = new Member();
+		copyMember.copyPropertiesFromObject(this.members[i]);
+		rtnTeam.addMember(copyMember);
+	}
+	
+	// 返却
+	return rtnTeam;
+}
+

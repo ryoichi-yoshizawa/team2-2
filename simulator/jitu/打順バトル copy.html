@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://shimage.net/batting-order-battle/index.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>打順バトル</title>
+<link rel="stylesheet" href="./打順バトル_files/bob_style.css" type="text/css">
+<script src="./打順バトル_files/f(4).txt" id="google_shimpl"></script><script id="twitter-wjs" src="./打順バトル_files/widgets.js.ダウンロード"></script><script src="./打順バトル_files/f(5).txt"></script><script type="text/javascript" async="" src="./打順バトル_files/ga.js.ダウンロード"></script><script type="text/javascript" src="./打順バトル_files/jquery-1.9.1.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/jquery-ui-1.10.3.custom.min.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/jquery.ui.touch-punch.min.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/lang_jp.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/util.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/rand_name_jp.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/member.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/team.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/main.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/game.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/item.js.ダウンロード"></script>
+<script type="text/javascript" src="./打順バトル_files/analytics.js.ダウンロード"></script>
+
+<meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script charset="utf-8" src="./打順バトル_files/button.13c48d2966337fafa1c1eb5533fdf29d.js.ダウンロード"></script></head>
+<body>
+<div id="wrapper">
+	
+	<img id="batter_icon" src="./打順バトル_files/batter.png" style="visibility: hidden;">
+	
+	<!-- game about -->
+	<div id="game_about" onclick="pushAbout()">
+		
+		<div class="about_caption">
+			<img src="./打順バトル_files/batter.png">
+			遊び方
+		</div>
+		<div class="about_paragraph">
+			ドラッグ＆ドロップで打順を決めます。
+			試合は自動で進みます。
+			試合に勝利した場合、1～3番のうちの誰かの能力が上がり、相手チームの誰か1人をトレードすることができます。
+			敗北した場合はゲームオーバーです。
+		</div>
+		<div class="about_paragraph">
+			ボタンの代わりにエンターキーかスペースキーでも進められます。<br>
+			「次へ」ボタンを右クリックすると、打席ごとに進められます。
+		</div>
+		<div class="about_paragraph">
+			ショップ<br>
+			試合に勝つと、得点の分だけcoinが手に入ります。<br>
+			ショップにてcoinとアイテムを交換することができます。
+		</div>
+		<div class="about_paragraph">
+			用語<br>
+			打率：ランナーなしか1塁にいる場合にヒットを打つ確率<br>
+			得点圏打率：2塁か3塁にランナーがいる場合にヒットを打つ確率
+		</div>
+		<div class="about_others">
+			※その他仕様:
+			ヒットの内訳は単打66%、二塁打16%、三塁打2%、本塁打16%です。
+			投手性能、併殺、犠打等はありません。
+			このゲームでは打率、得点圏打率は成績ではなく、次にヒットを打つ確率を表しています。
+			延長は12回までで決着がつくまで再試合を行います。
+		</div>
+	</div>
+	
+	<!-- shop -->
+	
+	
+	<!-- member info -->
+	<div id="member_info_popup">
+		<div>
+			<span style="font-weight:bold" id="member_info_name">氏名</span> <span id="member_info_avg">.172</span> <span id="member_info_risp">.333</span>
+		</div>
+		<div style="padding-left:10px">
+			通算安打数：<span id="member_info_total_hit">10</span><br>
+			通算打点数：<span id="member_info_total_rbi">10</span><br>
+			通算本塁打：<span id="member_info_total_hr">10</span><br>
+			試合出場数：<span id="member_info_total_game">10</span>
+		</div>
+	</div>
+	
+	<!-- game result -->
+	<div id="game_result" style="margin-top: -20px; opacity: 0; display: none;">
+		<div id="game_result_score">12 WIN</div>
+		<div id="game_result_button">
+			<button style="width:20%" class="sub_button twitter" onclick="pushTweet()">&nbsp;</button>
+			<button style="width:40%" onclick="pushResultOk()" class="sub_button">OK</button>
+		</div>
+	</div>
+	
+	<!-- header -->
+	<div id="header">
+		<span id="caption">野球シミュレーション</span>
+		<span id="menu">
+			<button onclick="pushAbout()">説明</button>
+			<button onclick="pushNewGame()">新規ゲーム</button>
+			<button id="continue_button" disabled="disabled">前回の続き</button>
+			
+		</span>
+		<span id="coin">0 coin</span>
+		<button id="btn_config" class="menu_button" onclick="pushConfig()">設定</button>
+		
+		<!-- config -->
+		<div id="config">
+			<div class="config_item">
+				<div class="config_caption">スキップ</div>
+				<input type="radio" name="rad_skip" id="rad_skip1" onclick="pushRadioSkip()" value="turn"><label for="rad_skip1">打席</label>
+				<input type="radio" name="rad_skip" id="rad_skip2" onclick="pushRadioSkip()" value="team"><label for="rad_skip2">攻撃</label>
+				<input type="radio" name="rad_skip" id="rad_skip3" onclick="pushRadioSkip()" value="game" disabled="disabled"><label for="rad_skip3" id="label_skip3" style="color: rgb(102, 102, 102);">試合</label>
+			</div><div class="config_item">
+				<div class="config_caption">ウェイト</div>
+				<select id="sel_wait" onchange="selectWait()">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+					<option value="500">500</option>
+					<option value="1000">1000</option>
+				</select>
+			</div><div class="config_item">
+				<div class="config_caption">ストップ</div>
+				<input type="radio" name="rad_stop" id="rad_stop1" onclick="pushRadioStop()" value="1"><label for="rad_stop1">1塁</label>
+				<input type="radio" name="rad_stop" id="rad_stop2" onclick="pushRadioStop()" value="2"><label for="rad_stop2">2塁</label>
+				<input type="radio" name="rad_stop" id="rad_stop3" onclick="pushRadioStop()" value="3"><label for="rad_stop3">3塁</label>
+				<input type="radio" name="rad_stop" id="rad_stop4" onclick="pushRadioStop()" value="0"><label for="rad_stop4">なし</label>
+				<input type="checkbox" id="chk_lead" onclick="pushCheckUnstopLead()" value="3"><label for="chk_lead">3点リード時スルー</label>
+			</div><div class="config_item">
+				<div class="config_caption">&nbsp;</div>
+				<input type="checkbox" id="chk_dh" value="true" onclick="pushCheckDh()"><label id="label_dh" for="chk_dh" style="color: rgb(255, 255, 255);">DH制</label>
+			</div><div class="config_item">
+				<div class="config_caption">&nbsp;</div>
+				<input type="checkbox" id="chk_del" onclick="pushDeleteData()"><label for="chk_del">データ削除</label>
+			</div>
+		</div>
+	</div>
+	
+	<!-- main -->
+	<div id="main">
+		<!-- first team -->
+		<div id="first_team_info" style="visibility: visible;">
+			<div class="team_name"><span id="first_team_name" style="border-left: 0px;">プレイヤー</span></div>
+			<div class="team_list_header">
+				<div class="first_team_list cell_order">順</div>
+				<div class="first_team_list cell_name">名前</div>
+				<div class="first_team_list cell_avg">打率</div>
+				<div class="first_team_list cell_risp">得点圏<br>打率</div>team_list_th
+			</div>
+			
+			<div id="first_team_list" class="ui-sortable" style="cursor: move;">
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">1</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">吉川尚輝</span></div>
+					<div class="team_list_td cell_avg">.256</div>
+					<div class="team_list_td cell_risp">.286</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">2</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">坂本勇人</span></div>
+					<div class="team_list_td cell_avg">.219</div>
+					<div class="team_list_td cell_risp">.219</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">3</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">秋広優人</span></div>
+					<div class="team_list_td cell_avg" style="color: rgb(187, 0, 0);">.292</div>
+					<div class="team_list_td cell_risp">.204</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">4</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">岡本和真</span></div>
+					<div class="team_list_td cell_avg">.162</div>
+					<div class="team_list_td cell_risp" style="color: rgb(221, 0, 0);">.392</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">5</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">大城卓三</span></div>
+					<div class="team_list_td cell_avg" style="color: rgb(255, 0, 0);">.433</div>
+					<div class="team_list_td cell_risp" style="color: rgb(255, 0, 0);">.510</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">6</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">ブリンソン</span></div>
+					<div class="team_list_td cell_avg">.178</div>
+					<div class="team_list_td cell_risp">.178</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">7</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">梶谷隆幸</span></div>
+					<div class="team_list_td cell_avg" style="color: rgb(221, 0, 0);">.298</div>
+					<div class="team_list_td cell_risp">.159</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">8</div>
+					<div class="team_list_td cell_name"><span class="name_text" style="cursor: pointer;">丸佳浩</span></div>
+					<div class="team_list_td cell_avg">.211</div>
+					<div class="team_list_td cell_risp" style="color: rgb(187, 0, 0);">.386</div>
+				</div>
+				<div class="team_list_record">
+					<div class="team_list_td cell_order">9</div>
+					<div class="team_list_td cell_name"><span>(投) </span><span class="name_text" style="cursor: pointer;">門脇誠</span></div>
+					<div class="team_list_td cell_avg">.112</div>
+					<div class="team_list_td cell_risp">.063</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<!-- game info -->
+		<div id="game_info" style="visibility: hidden;">
+			<div id="game_count_caption" style="visibility: hidden;">第<span id="game_count">-</span>試合 <span id="inning_count"></span></div>
+			<div id="score_point">
+				<span id="first_score"></span> - <span id="last_score"></span>
+			</div>
+			<table id="score_board">
+				<tbody><tr>
+					<th></th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th class="extension_th" style="display: none;">10</th>
+					<th class="extension_th" style="display: none;">11</th>
+					<th class="extension_th" style="display: none;">12</th>
+					<th>計</th>
+					<th>安</th>
+				</tr>
+				<tr>
+					<th id="score_first_team_name">先攻チーム
+					</th><td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_first extension_first_td" style="background-color: rgb(238, 238, 238); display: none;"></td>
+					<td class="score_first extension_first_td" style="background-color: rgb(238, 238, 238); display: none;"></td>
+					<td class="score_first extension_first_td" style="background-color: rgb(238, 238, 238); display: none;"></td>
+					<td id="total_score_first"></td>
+					<td id="total_hit_first"></td>
+				</tr>
+				<tr>
+					<th id="score_last_team_name">後攻チーム
+					</th><td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last" style="background-color: rgb(238, 238, 238);"></td>
+					<td class="score_last extension_last_td" style="background-color: rgb(238, 238, 238); display: none;"></td>
+					<td class="score_last extension_last_td" style="background-color: rgb(238, 238, 238); display: none;"></td>
+					<td class="score_last extension_last_td" style="background-color: rgb(238, 238, 238); display: none;"></td>
+					<td id="total_score_last"></td>
+					<td id="total_hit_last"></td>
+				</tr>
+			</tbody></table>
+			
+			<!-- control -->
+			<div id="control">
+				<div id="control_left">
+					<img id="base_state_img" src="./打順バトル_files/base000.png"><br>
+					OUT : <img id="out_img" src="./打順バトル_files/out0.png">
+				</div>
+				<div id="control_right">
+					<button class="sub_button" style="width: 25%; visibility: hidden;" id="item_button" onclick="toggleInventory()"><nowrap>札</nowrap></button>
+					<button class="sub_button" style="width: 65%; visibility: visible;" id="game_button">打順確定</button>
+				</div>
+			</div>
+			
+			<div id="detail_message_list"></div>
+			<div id="inventory"></div>
+		</div>
+		
+		<!-- last team -->
+		<div id="last_team_info" style="visibility: hidden;">
+			<div class="team_name"><span id="last_team_name" style="border-left: 0px;">後攻チーム</span></div>
+			<div class="team_list_header">
+				<div class="team_list_th cell_order">順</div>
+				<div class="team_list_th cell_name">名前</div>
+				<div class="team_list_th cell_avg">打率</div>
+				<div class="team_list_th cell_risp">得点圏<br>打率</div>
+			</div>
+			
+			<div id="last_team_list"></div>
+		</div>
+		
+		<!-- footer show button -->
+		<div id="footer_show_button" onclick="pushShowFooter()">
+			<img src="./打順バトル_files/footer_show.png">
+		</div>
+	</div>
+	
+	<!-- copyright -->
+	
+	
+	<!-- footer -->
+	<div id="footer">
+		<div id="ad">
+			<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-9064608402527289";
+			/* ad300x250 */
+			google_ad_slot = "8789718116";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</script>
+			<script type="text/javascript" src="./打順バトル_files/adsense.js.ダウンロード"></script>
+		</div>
+		<div class="result_list">
+			<div class="result_caption">実績</div>
+			<div id="achievement_list"><div class="result_achievement" title="1ゲームで3連勝する（設定の試合スキップ機能開放）"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><br><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><br><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><br></div>
+		</div>
+		<div class="result_list">
+			<div class="result_caption">記録</div>
+			<div class="result_record">ゲーム数： <span id="records_try_count" class="record_value">1</span></div>
+			<div class="result_record">試合数： <span id="records_game_count" class="record_value">0</span></div>
+			<div class="result_record">勝利数： <span id="records_win_count" class="record_value">0</span></div>
+			<div class="result_record">1イニング得点： <span id="records_pt_inning" class="record_value" style="color: rgb(0, 0, 0);">0</span></div>
+			<div class="result_record">1試合得点： <span id="records_pt_game" class="record_value" style="color: rgb(0, 0, 0);">0</span></div>
+			<div class="result_record">1ゲーム安打： <span id="records_hit_try" class="record_value" style="color: rgb(0, 0, 0);">0()</span></div>
+			<div class="result_record">1ゲーム打点： <span id="records_rbi_try" class="record_value" style="color: rgb(0, 0, 0);">0()</span></div>
+		</div>
+		<div class="result_list">
+			<div class="result_caption">履歴</div>
+			<div id="history_list"></div>
+		</div>
+		<div class="result_list">
+			<div class="result_caption">トップ 10</div>
+			<div id="top10_list"></div>
+		</div>
+		
+		<div id="footer_hide_button" onclick="pushHideFooter()">
+			<img src="./打順バトル_files/footer_hide.png">
+		</div>
+		
+		
+	</div>
+	
+</div>
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_1_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./打順バトル_files/ads(1).html" data-google-container-id="a!2" data-load-complete="true"></iframe></div></ins><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./打順バトル_files/widget_iframe.d37472b4a6622d0b1fff46ad904f6896.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./打順バトル_files/saved_resource(1).html"></iframe><iframe src="./打順バトル_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./打順バトル_files/zrt_lookup_fy2021.html" style="display: none;"></iframe>
+
+<script>
+	// ページがロードされたときに実行される
+	document.addEventListener('DOMContentLoaded', () => {
+	  document.querySelectorAll('.risp_input').forEach(input => {
+		input.addEventListener('change', (event) => {
+		  // 入力値が変更されたときに実行される
+		  const newValue = event.target.value;
+		  // バリデーションに合格した場合にデータを更新
+		  if (isValidRISP(newValue)) {
+			// 対応する得点率のセルを更新
+			event.target.closest('.team_list_td').innerText = newValue;
+		  } else {
+			// 無効な値でアラートを表示し、フィールドを元に戻す
+			alert('無効な得点率です。正しい値を入力してください。');
+			event.target.value = event.target.defaultValue;
+		  }
+		});
+	  });
+	});
+	
+	function isValidRISP(value) {
+	  const num = parseFloat(value);
+	  return !isNaN(num) && num >= 0 && num <= 1;
+	}
+	</script>
+	
+
+</html>
