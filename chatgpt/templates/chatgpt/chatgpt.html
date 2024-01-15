@@ -12,7 +12,12 @@
     </form>
     <div id="chat-log">
         <!-- チャットログがここに表示されます -->
+        {% for entry in conversation_entries %}
+            <div>User: {{ entry.user_message }}</div>
+            <div>ChatGPT: {{ entry.chatgpt_response }}</div>
+        {% endfor %}
     </div>
+
 
     <script>
         $('#chat-form').submit(function(event) {
