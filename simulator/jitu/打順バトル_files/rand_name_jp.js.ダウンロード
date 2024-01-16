@@ -4,6 +4,8 @@ var sei_names2 = ["あ", "い", "う", "え", "お"];
 var mei_names1 = ["あ", "い", "う", "え", "お"];
 var mei_names2 = ["あ", "い", "う", "え", "お"];
 
+
+
 // メソッド
 function getRandomName(){
 	var sei1 = sei_names1[Math.floor(Math.random() * sei_names1.length)];
@@ -12,5 +14,3 @@ function getRandomName(){
 	var mei2 = mei_names2[Math.floor(Math.random() * mei_names2.length)];
 	return sei1 + sei2 + " " + mei1 + mei2;
 }
-
-

@@ -1,0 +1,84 @@
+//========================
+// 選手クラス
+//========================
+function Member(){
+	
+	// プロパティ
+	this.id = 0;				// id（育成用）
+	this.member_name = "";		// 選手名
+	this.flg_pitcher = false;	// ピッチャーかどうか
+	this.flg_dev = false;		// 育成枠かどうか
+	this.avg = 0;				// 打率
+	this.risp = 0;				// 得点圏打率
+	this.total_hit = 0;			// 通算安打
+	this.total_rbi = 0;			// 通算打点
+	this.total_hr = 0;			// 通算HR
+	this.total_game = 0;		// 試合回数
+	
+	// 初期能力
+	this.createMember();
+}
+
+//-----------
+// メソッド
+//-----------
+// 打率増減
+Member.prototype.addAvg = function(inNum){
+	this.avg += Number(inNum);
+	if(this.avg < 0){
+		this.avg = 0;
+	}else if(this.avg > 0.98){
+		this.avg = 0.98;
+	}
+}
+
+// 得点圏打率増減
+Member.prototype.addRisp = function(inNum){
+	this.risp += Number(inNum);
+	if(this.risp < 0){
+		this.risp = 0;
+	}else if(this.risp > 0.98){
+		this.risp = 0.98;
+	}
+}
+
+// 打席成績初期化
+Member.prototype.initializeScore = function(){
+	this.total_hit = 0;
+	this.total_rbi = 0;
+	this.total_hr = 0;
+	this.total_game = 0;
+}
+
+// 通算値増減
+Member.prototype.incrementTotalHit = function(){this.total_hit++;}
+Member.prototype.incrementTotalHr = function(){this.total_hr++;}
+Member.prototype.incrementTotalGame = function(){this.total_game++;}
+Member.prototype.addTotalRbi = function(inNum){
+	this.total_rbi += inNum;
+}
+
+// オブジェクトからプロパティを受け取る
+Member.prototype.copyPropertiesFromObject = function(inObject){
+	this.id				= inObject.id;
+	this.member_name	= inObject.member_name;
+	this.flg_pitcher	= inObject.flg_pitcher;
+	this.flg_dev		= inObject.flg_dev;
+	this.avg			= inObject.avg;
+	this.risp			= inObject.risp;
+	this.total_hit		= inObject.total_hit;
+	this.total_rbi		= inObject.total_rbi;
+	this.total_hr		= inObject.total_hr;
+	this.total_game		= inObject.total_game;
+}
+
+//------------------------
+// 選手をランダムに生成
+//------------------------
+Member.prototype.createMember = function(){
+	
+	// 名前をランダムに取得
+	this.member_name = getRandomName();
+}
+
+
