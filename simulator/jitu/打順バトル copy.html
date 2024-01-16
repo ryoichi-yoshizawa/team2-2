@@ -3,13 +3,6 @@
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>打順バトル</title>
-<style>
-    body {
-      font-family: 'AArial Black', sans-serif; /* フォントの指定 */
-    }
-
-    /* 他のスタイルルールもここに追加できます */
-  </style>
 <link rel="stylesheet" href="./打順バトル_files/bob_style.css" type="text/css">
 <script src="./打順バトル_files/f(4).txt" id="google_shimpl"></script><script id="twitter-wjs" src="./打順バトル_files/widgets.js.ダウンロード"></script><script src="./打順バトル_files/f(5).txt"></script><script type="text/javascript" async="" src="./打順バトル_files/ga.js.ダウンロード"></script><script type="text/javascript" src="./打順バトル_files/jquery-1.9.1.js.ダウンロード"></script>
 <script type="text/javascript" src="./打順バトル_files/jquery-ui-1.10.3.custom.min.js.ダウンロード"></script>
@@ -46,6 +39,11 @@
 		<div class="about_paragraph">
 			ボタンの代わりにエンターキーかスペースキーでも進められます。<br>
 			「次へ」ボタンを右クリックすると、打席ごとに進められます。
+		</div>
+		<div class="about_paragraph">
+			ショップ<br>
+			試合に勝つと、得点の分だけcoinが手に入ります。<br>
+			ショップにてcoinとアイテムを交換することができます。
 		</div>
 		<div class="about_paragraph">
 			用語<br>
@@ -95,14 +93,12 @@
 			<button id="continue_button" disabled="disabled">前回の続き</button>
 			
 		</span>
-		
+		<span id="coin">0 coin</span>
 		<button id="btn_config" class="menu_button" onclick="pushConfig()">設定</button>
-		
 		
 		<!-- config -->
 		<div id="config">
 			<div class="config_item">
-			
 				<div class="config_caption">スキップ</div>
 				<input type="radio" name="rad_skip" id="rad_skip1" onclick="pushRadioSkip()" value="turn"><label for="rad_skip1">打席</label>
 				<input type="radio" name="rad_skip" id="rad_skip2" onclick="pushRadioSkip()" value="team"><label for="rad_skip2">攻撃</label>
@@ -305,6 +301,17 @@
 	
 	<!-- footer -->
 	<div id="footer">
+		<div id="ad">
+			<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-9064608402527289";
+			/* ad300x250 */
+			google_ad_slot = "8789718116";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</script>
+			<script type="text/javascript" src="./打順バトル_files/adsense.js.ダウンロード"></script>
+		</div>
 		<div class="result_list">
 			<div class="result_caption">実績</div>
 			<div id="achievement_list"><div class="result_achievement" title="1ゲームで3連勝する（設定の試合スキップ機能開放）"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><br><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><br><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><div class="result_achievement" title="???"></div><br></div>
