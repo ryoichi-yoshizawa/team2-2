@@ -339,7 +339,7 @@ html,body{
 
 /* 選手情報 */
 .team_name{
-	color : #069;
+	color : rgb(143, 119, 24);
 	font-size : 120%;
 	text-align : center;
 	padding : 20px 0px 10px 0px;
@@ -600,20 +600,20 @@ button:disabled{
 .sub_button{
 	font-size : 120%;
 	padding : 20px 5px;
-	background-color : #0CF;
-	border-bottom : 4px solid #09C;
+	background-color : #FC0;
+	border-bottom : 4px solid rgb(143, 119, 24);
 }
 
 .sub_button:hover{
 	cursor : pointer;
 	color : #FFF;
-	background-color : #09C;
-	border-bottom : 4px solid #069;
+	background-color : #FC0;
+	border-bottom : 4px solid rgb(143, 119, 24);
 }
 
 .sub_button:active{
 	color : #999;
-	background-color : #069;
+	background-color : rgb(143, 119, 24);
 }
 
 .sub_button:disabled{
