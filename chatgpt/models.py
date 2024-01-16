@@ -4,17 +4,29 @@ from django.db import models
 # chatgpt/models.py
 
 # models.py
-from django.db import models
+# chatgpt/models.py
 
-class BaseballPlayer(models.Model):
+class GiantsHitter(models.Model):
+    背番号 = models.TextField()
     選手名 = models.TextField()
-    守備 = models.TextField()
-    生年月日 = models.TextField()
-    年齢 = models.IntegerField()
-    年数 = models.IntegerField()
-    身長 = models.IntegerField()
-    体重 = models.IntegerField()
-    血液型 = models.TextField()
-    投打 = models.TextField()
-    出身地 = models.TextField()
-    年俸 = models.IntegerField()
+    打率 = models.TextField()
+    試合 = models.TextField()
+    打席数 = models.TextField()
+    打数 = models.TextField()
+    安打 = models.TextField()
+    本塁打 = models.TextField()
+    打点 = models.TextField()
+    盗塁 = models.TextField()
+    四球 = models.TextField()
+    死球 = models.TextField()
+    三振 = models.TextField()
+    犠打 = models.TextField()
+    併殺打 = models.TextField()
+    出塁率 = models.TextField()
+    長打率 = models.TextField()
+    OPS = models.TextField()
+    RC27 = models.TextField()
+    XR27 = models.TextField()
+
+    def __str__(self):
+        return self.選手名
