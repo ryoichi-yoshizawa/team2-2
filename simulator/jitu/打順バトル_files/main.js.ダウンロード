@@ -403,24 +403,40 @@ function pushNewGame(){
 	clearGameInfo();
 	
 	// プレイヤーチーム編成
-	playerTeam = new Team();
-	playerTeam.flg_player = true;
-	playerTeam.team_name = word_player_team_name;
-	for(var i=0; i<9; i++){
-		var newMember = new Member();
-		
-		// 能力値
-		newMember.avg = getDecimal(getBiasRandom() * 0.5 + 0.15, 1000);
-		newMember.risp = getDecimal(getBiasRandom() * 0.5 + 0.15, 1000);
-		
-		// ピッチャー
-		if(game_dh == false && i==8){
-			newMember.avg = getDecimal(getBiasRandom() * 0.2 + 0.05, 1000);
-			newMember.risp = getDecimal(getBiasRandom() * 0.2 + 0.05, 1000);
-			newMember.flg_pitcher = true;
-		}
-		playerTeam.addMember(newMember);
-	}
+	
+playerTeam = new Team();
+playerTeam.flg_player = true;
+playerTeam.team_name = word_player_team_name;
+
+// 固定メンバーの打率 (avg) と得点圏打率 (risp) を配列で持つ
+// ここでは例としてランダムな値を使用していますが実際には固定値を設定してください
+var fixedMembersData = [
+  { avg: 0.250, risp: 0.280 },
+  { avg: 0.265, risp: 0.275 },
+  { avg: 0.230, risp: 0.290 },
+  { avg: 0.310, risp: 0.330 },
+  { avg: 0.270, risp: 0.300 },
+  { avg: 0.245, risp: 0.260 },
+  { avg: 0.290, risp: 0.315 },
+  { avg: 0.280, risp: 0.305 },
+  // ピッチャー
+  { avg: 0.150, risp: 0.170, flg_pitcher: true }
+];
+
+for(var i = 0; i < 9; i++){
+  var newMember = new Member();
+  
+  // 能力値を固定値に設定
+  newMember.avg = fixedMembersData[i].avg;
+  newMember.risp = fixedMembersData[i].risp;
+  
+  // ピッチャーの設定
+  if (fixedMembersData[i].flg_pitcher) {
+    newMember.flg_pitcher = true;
+  }
+  
+  playerTeam.addMember(newMember);
+}
 	
 	// 育成選手を追加
 	for(var i=0; i<devTeam.members.length; i++){
