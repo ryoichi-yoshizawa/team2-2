@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import ChatForm
 from django.conf import settings
 
-from .models import BaseballPlayer
+from .models import GiantsHitter
 
 openai.api_key = settings.OPENAI_API_KEY
 
@@ -16,43 +16,35 @@ class ChatGPTView(View):
     template_name = 'chatgpt/chatgpt.html'
 
     def get(self, request, *args, **kwargs):
-        form = ChatForm()
-        # データベースから最新の会話データを取得
-        conversation_entries = BaseballPlayer.objects.all().order_by('-id')[:10]
-        return render(request, self.template_name, {'form': form, 'conversation_entries': conversation_entries})
-    
-    def post(self, request, *args, **kwargs):
-        form = ChatForm(request.POST)
-        if form.is_valid():
-            user_input = form.cleaned_data['message']
-            response = self.get_chatgpt_response(user_input)
-            return JsonResponse({'response': response})
-        return JsonResponse({'response': 'Invalid message'})
+        return render(request, self.template_name)
 
-    def get_chatgpt_response(self, user_input):
+    def post(self, request, *args, **kwargs):
+        user_message = request.POST.get('message', '')
+        chatgpt_response = self.get_chatgpt_response(user_message)
+        return JsonResponse({'response': chatgpt_response})
+
+    def get_chatgpt_response(self, user_message):
+    # データベースから選手データを取得して、ChatGPT に渡す
+        player_data = self.get_player_data()
+        prompt = f"User: {user_message}\nPlayers: {', '.join(player_data)}\n"
+
         try:
-            player = BaseballPlayer.objects.get(選手名=user_input)
-            response = f"{player.選手名}の守備は{player.守備}です。年齢は{player.年齢}歳で、身長は{player.身長}cm、体重は{player.体重}kgです。"
-        except BaseballPlayer.DoesNotExist:
-            response = "該当する選手が見つかりませんでした。"
+            response = openai.Completion.create(
+                engine="gpt-3.5-turbo",  # GPT-3.5のエンジンIDに変更する
+                prompt=prompt,
+                max_tokens=150,
+                n=1,
+                stop=None,
+                temperature=0.7
+            )
+            return response['choices'][0]['text'].strip()
+        except openai.error.OpenAIError as e:
+            # OpenAIのエラーを適切にハンドルします
+            print(f"OpenAI API error: {e}")
+            return "I'm sorry, there was an error processing your request."
 
-        return response
-
-    def post(self, request, *args, **kwargs):
-        form = ChatForm(request.POST)
-        if form.is_valid():
-            user_input = form.cleaned_data['message']
-
-            # データベースに保存
-            conversation = BaseballPlayer(user_message=user_input)
-            conversation.save()
-
-            # ChatGPTの応答取得
-            response = self.get_chatgpt_response(user_input)
-
-            # データベースに応答を保存
-            conversation.chatgpt_response = response
-            conversation.save()
-
-            return JsonResponse({'response': response})
-        return JsonResponse({'response': 'Invalid message'})
+    def get_player_data(self):
+        # データベースから選手データを取得
+        players = GiantsHitter.objects.order_by('-打率')[:5]  # 打率の高い順に取得（適切な条件に変更してください）
+        player_data = [f"{player.選手名} ({player.打率})" for player in players]
+        return player_data

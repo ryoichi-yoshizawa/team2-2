@@ -12,19 +12,12 @@
     </form>
     <div id="chat-log">
         <!-- チャットログがここに表示されます -->
-        {% for entry in conversation_entries %}
-            <div>User: {{ entry.user_message }}</div>
-            <div>ChatGPT: {{ entry.chatgpt_response }}</div>
-        {% endfor %}
     </div>
-
-
     <script>
         $('#chat-form').submit(function(event) {
             event.preventDefault();
             var userMessage = $('#id_message').val();
             $('#chat-log').append('<div>User: ' + userMessage + '</div>');
-
             $.ajax({
                 type: 'POST',
                 url: '',  // 空欄にしておくと、現在のURLにデータが送信されます
