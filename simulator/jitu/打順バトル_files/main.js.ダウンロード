@@ -516,49 +516,49 @@ function pushOrderComplete(){
 		playerTeam.members.pop();
 	}
 	
-	// 対戦相手チーム編成
-	opponentTeam = new Team();
-	opponentTeam.team_name = word_opponent_team_name;
-	
-	// ボスかどうか
-	var bossAdjust = 1;
-	if(getEncountBoss()){
-		bossAdjust = 1.3;
-	}
-	
-	for(var i=0; i<9; i++){
-		var newMember = new Member();
-		
-		// 能力値決定
-		newMember.avg = getCPUStatus(bossAdjust);
-		newMember.risp = getCPUStatus(bossAdjust);
-		
-		// ピッチャー
-		if(game_dh == false && i==8){
-			newMember.avg = getCPUStatus(0.5 * bossAdjust);
-			newMember.risp = getCPUStatus(0.5 * bossAdjust);
-			newMember.flg_pitcher = true;
-		}
-		opponentTeam.addMember(newMember);
-	}
-	
-	// 対戦相手打順シャッフル
-	opponentTeam.members.shuffle();
-	
-	// ボス
-	if(getEncountBoss()){
-		
-		// チーム名
-		opponentTeam.team_name = word_boss_opponent_team_name;
-		
-		// 打順を強い順に並べる
-		opponentTeam.sortMember();
-	}
-	
-	// 場面チェンジ
-	changeScene(2);
+// 対戦相手チーム編成
+opponentTeam = new Team();
+opponentTeam.team_name = word_opponent_team_name;
+
+// ボスかどうか
+var bossAdjust = getEncountBoss() ? 1.3 : 1;
+
+// 固定の能力値
+var fixedAvg = 0.250; // ここで固定したい打率を設定
+var fixedRisp = 0.250; // ここで固定したい得点圏打率を設定
+
+for(var i = 0; i < 9; i++){
+    var newMember = new Member();
+    
+    // 能力値決定
+    newMember.avg = fixedAvg * bossAdjust; // 固定値にボスの調整を掛ける
+    newMember.risp = fixedRisp * bossAdjust; // 固定値にボスの調整を掛ける
+    
+    // ピッチャー
+    if(!game_dh && i == 8){
+        newMember.avg *= 0.5; // ピッチャーは能力値を半分にする
+        newMember.risp *= 0.5;
+        newMember.flg_pitcher = true;
+    }
+    
+    opponentTeam.addMember(newMember);
 }
 
+// 対戦相手打順シャッフル
+opponentTeam.members.shuffle();
+
+// ボス
+if(getEncountBoss()){
+    // チーム名
+    opponentTeam.team_name = word_boss_opponent_team_name;
+    
+    // 打順を強い順に並べる
+    opponentTeam.sortMember();
+}
+
+// 場面チェンジ
+changeScene(2);
+}
 
 //------------------
 // CPUの打率取得

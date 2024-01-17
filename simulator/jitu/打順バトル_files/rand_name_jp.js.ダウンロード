@@ -1,9 +1,10 @@
 // データ
-var sei_names1 = ["あ", "い", "う", "え", "お"];
-var sei_names2 = ["あ", "い", "う", "え", "お"];
-var mei_names1 = ["あ", "い", "う", "え", "お"];
-var mei_names2 = ["あ", "い", "う", "え", "お"];
-
+var sei_names1 = ["プ"];
+var sei_names2 = ["レ"];
+var mei_names1 = ["イ"];
+var mei_names2 = ["ヤ"];
+var mei_names3 = ["ー"];
+var mei_names4 = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 
 
 // メソッド
@@ -12,5 +13,7 @@ function getRandomName(){
 	var sei2 = sei_names2[Math.floor(Math.random() * sei_names2.length)];
 	var mei1 = mei_names1[Math.floor(Math.random() * mei_names1.length)];
 	var mei2 = mei_names2[Math.floor(Math.random() * mei_names2.length)];
-	return sei1 + sei2 + " " + mei1 + mei2;
+	var mei3 = mei_names3[Math.floor(Math.random() * mei_names3.length)];
+	var mei4 = mei_names4[Math.floor(Math.random() * mei_names4.length)];
+	return sei1 + sei2 + mei1 + mei2 +mei3 + mei4 ; 
 }
