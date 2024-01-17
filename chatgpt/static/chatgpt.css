@@ -1,0 +1,89 @@
+/* chatgpt.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+#chat-form {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+}
+
+#id_message {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+button {
+    background-color: #0084ff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#chat-log {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#chat-log div {
+    margin-bottom: 8px;
+}
+
+#chat-log div:after {
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+}
+
+#chat-log div:nth-child(even) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width:500px; /*最大幅は任意*/
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 17px 13px 15px 18px;
+    border-radius: 12px;
+    background: #a2f9f9;/*色は任意*/
+    box-sizing:border-box;
+    margin: 10px; 
+    line-height:1.5;
+}
+
+#chat-log div:nth-child(even):after{
+    left: -26px;
+    border-right: 22px solid #a2f9f9;
+}
+
+#chat-log div:nth-child(odd) {
+    max-width:500px; /*最大幅は任意*/
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 17px 13px 15px 18px;
+    border-radius: 12px;
+    background: #9ffeaf;/*色は任意*/
+    box-sizing:border-box;
+    margin: 10px; 
+    line-height:1.5;
+}
+
+#chat-log div:nth-child(odd):after {
+    left: -26px;
+    border-right: 22px solid #9ffeaf;
+}
