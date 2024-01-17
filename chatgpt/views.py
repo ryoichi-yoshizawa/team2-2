@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import ChatForm
 from django.conf import settings
 
-from .models import GiantsHitter
+from .models import CLeague
 
 openai.api_key = settings.OPENAI_API_KEY
 
@@ -24,27 +24,25 @@ class ChatGPTView(View):
         return JsonResponse({'response': chatgpt_response})
 
     def get_chatgpt_response(self, user_message):
-    # データベースから選手データを取得して、ChatGPT に渡す
-        player_data = self.get_player_data()
-        prompt = f"User: {user_message}\nPlayers: {', '.join(player_data)}\n"
+    # ユーザーの要求を解析し、Djangoデータベースから選手データを取得
+        if "セ・リーグの成績の良い順に" in user_message and "人表示してください" in user_message:
+            try:
+                # データベースから順位の高い順に選手データを取得
+                players = CLeague.objects.order_by('順位')[:9]
+                player_names = [player.選手名 for player in players]
+            
+                # ChatGPTの応答を生成
+                response_text = f"セ・リーグの成績の良い順に9人表示します：{', '.join(player_names)}"
+            except Exception as e:
+                response_text = f"エラーが発生しました：{str(e)}"
+        else:
+            # デフォルトのChatGPTの応答
+            response_text = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": user_message},
+                ]
+            )['choices'][0]['message']['content']
 
-        try:
-            response = openai.Completion.create(
-                engine="gpt-3.5-turbo",  # GPT-3.5のエンジンIDに変更する
-                prompt=prompt,
-                max_tokens=150,
-                n=1,
-                stop=None,
-                temperature=0.7
-            )
-            return response['choices'][0]['text'].strip()
-        except openai.error.OpenAIError as e:
-            # OpenAIのエラーを適切にハンドルします
-            print(f"OpenAI API error: {e}")
-            return "I'm sorry, there was an error processing your request."
-
-    def get_player_data(self):
-        # データベースから選手データを取得
-        players = GiantsHitter.objects.order_by('-打率')[:5]  # 打率の高い順に取得（適切な条件に変更してください）
-        player_data = [f"{player.選手名} ({player.打率})" for player in players]
-        return player_data
+        return response_text
