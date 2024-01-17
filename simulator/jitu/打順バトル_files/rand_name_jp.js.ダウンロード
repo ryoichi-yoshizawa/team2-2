@@ -13,7 +13,19 @@ function getRandomName(){
 	var sei2 = sei_names2[Math.floor(Math.random() * sei_names2.length)];
 	var mei1 = mei_names1[Math.floor(Math.random() * mei_names1.length)];
 	var mei2 = mei_names2[Math.floor(Math.random() * mei_names2.length)];
+<<<<<<< HEAD
 	var mei3 = mei_names3[Math.floor(Math.random() * mei_names3.length)];
 	var mei4 = mei_names4[Math.floor(Math.random() * mei_names4.length)];
 	return sei1 + sei2 + mei1 + mei2 +mei3 + mei4 ; 
 }
+=======
+	return sei1 + sei2 + " " + mei1 + mei2;
+}
+
+// メソッド
+//function getRandomName(){
+//  var sei = prompt('姓を入力してください:');
+//    var mei = prompt('名を入力してください:');
+//    return sei + " " + mei;
+//}
+>>>>>>> 89f76e523957fdbe147985cf604967718bd625a6
