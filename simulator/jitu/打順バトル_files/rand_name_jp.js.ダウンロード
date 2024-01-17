@@ -14,3 +14,10 @@ function getRandomName(){
 	var mei2 = mei_names2[Math.floor(Math.random() * mei_names2.length)];
 	return sei1 + sei2 + " " + mei1 + mei2;
 }
+
+// メソッド
+//function getRandomName(){
+//  var sei = prompt('姓を入力してください:');
+//    var mei = prompt('名を入力してください:');
+//    return sei + " " + mei;
+//}
